@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Liberty Hill Youth Football & Cheer Fundraiser — Scholarships, cheer fees, equipment, and end-of-season awards." />
+  <title>Liberty Hill Youth Football & Cheer Fundraiser</title>
+
+  <style>
+
+/* ================================
+   ACTION PHOTO BANNER
+================================ */
+.hero-banner{
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  background-image: url("assets/action\ shot\ 3.jpg");
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+/* Dark gradient overlay for readability */
+.hero-banner-overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(11,11,16,.65),
+      rgba(11,11,16,.75)
+    );
+  z-index: 1;
+}
+
+/* Banner content */
+.hero-banner-content{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 24px;
+  max-width: 900px;
+}
+
+.hero-banner-content h1{
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 52px);
+  letter-spacing: -.02em;
+}
+
+.hero-banner-content p{
+  margin: 0 0 18px;
+  font-size: clamp(14px, 1.5vw, 18px);
+  color: rgba(245,245,255,.9);
+}
+
+.hero-banner-actions{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Mobile tweaks */
+@media (max-width: 720px){
+  .hero-banner{
+    min-height: 260px;
+    background-position: center;
+  }
+}
+
+    /* 2) Paste this in your <style> (near the top is fine) */
+.bg-watermark{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  /* Your watermark image */
+  background-image: url("assets/LH\ Logo.png");
+  background-repeat: no-repeat;
+  background-position: center 55%;
+  background-size: min(70vw, 900px);
+
+  /* Subtle look */
+  opacity: .015;               /* tweak .05–.12 */
+  filter: grayscale(100%);     /* optional */
+  transform: translateZ(0);
+
+  /* Animation */
+  animation: watermarkFloat 12s ease-in-out infinite;
+}
+
+/* Ensure page content stays above the watermark */
+.wrap, .topbar{
+  position: relative;
+  z-index: 1;
+}
+
+/* Slow float + tiny rotate */
+@keyframes watermarkFloat{
+  0%   { transform: translateY(0) scale(1) rotate(-1deg); opacity: .065; }
+  50%  { transform: translateY(-14px) scale(1.02) rotate(1deg); opacity: .085; }
+  100% { transform: translateY(0) scale(1) rotate(-1deg); opacity: .065; }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce){
+  .bg-watermark{ animation: none; }
+}
+
+.bg-watermark::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(600px 260px at 15% 30%, rgba(139,92,246,.18), transparent 60%),
+    radial-gradient(600px 260px at 85% 40%, rgba(246,199,68,.14), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: .55;
+  animation: shimmer 10s ease-in-out infinite;
+}
+
+@keyframes shimmer{
+  0%   { transform: translateX(-2%) translateY(0); opacity:.45; }
+  50%  { transform: translateX(2%) translateY(-1%); opacity:.65; }
+  100% { transform: translateX(-2%) translateY(0); opacity:.45; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .bg-watermark::after{ animation: none; }
+}
+
+    :root{
+      --bg:#0b0b10;
+      --card:#121220;
+      --card2:#16162a;
+      --text:#f5f5ff;
+      --muted:#c9c9e6;
+      --line:rgba(255,255,255,.12);
+      --purple:#6a2bd9;
+      --purple2:#8b5cf6;
+      --gold:#f6c744;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(139,92,246,.35), transparent 60%),
+        radial-gradient(800px 450px at 85% 20%, rgba(246,199,68,.22), transparent 60%),
+        radial-gradient(900px 500px at 55% 100%, rgba(106,43,217,.22), transparent 60%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+/* HERO IMAGE PANEL */
+.hero-image{
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+/* Soft dark overlay for text harmony */
+.hero-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(11,11,16,.2),
+      rgba(11,11,16,.45)
+    );
+  pointer-events:none;
+}
+
+/* Update grid to allow 3 columns */
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr .9fr;
+  gap: 18px;
+}
+
+/* Mobile stacking */
+@media (max-width: 900px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+  .hero-image{
+    min-height: 220px;
+  }
+}
+
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(11,11,16,.85), rgba(11,11,16,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+    }
+    .brand{display:flex; gap:12px; align-items:center; text-decoration:none}
+.brand img{
+  width:56px;
+  height:56px;
+  border-radius:14px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.18);
+  padding:8px;
+}
+
+    .brand .title{display:flex; flex-direction:column; line-height:1.1}
+    .brand .title strong{letter-spacing:.5px}
+    .brand .title span{color:var(--muted); font-size:12px}
+
+    .nav{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .nav a{
+      font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{border-color:var(--line); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      text-decoration:none;
+      cursor:pointer;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.22)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(139,92,246,.95), rgba(106,43,217,.95));
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 12px 30px rgba(106,43,217,.35);
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.gold{
+      background: linear-gradient(135deg, rgba(246,199,68,.95), rgba(255,214,100,.85));
+      color:#1a1406;
+      border-color: rgba(255,255,255,.15);
+      box-shadow: 0 12px 30px rgba(246,199,68,.25);
+    }
+
+    .hero{
+      padding:34px 0 10px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns: 1fr}
+      .nav{display:none}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{padding:26px}
+    .eyebrow{
+      display:inline-flex; gap:10px; align-items:center;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: rgba(245,245,255,.82);
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(30px, 3.6vw, 52px);
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size: clamp(14px, 1.3vw, 18px);
+      max-width: 60ch;
+    }
+    .pill-row{
+      margin-top:16px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: rgba(245,245,255,.92);
+      font-size:13px;
+    }
+    .pill b{color:var(--gold)}
+    .cta-row{
+      margin-top:18px;
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    }
+
+    .hero-side{padding:18px}
+    .goalbox{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: radial-gradient(600px 220px at 20% 20%, rgba(246,199,68,.18), transparent 60%),
+                  radial-gradient(600px 220px at 80% 40%, rgba(139,92,246,.18), transparent 60%),
+                  rgba(255,255,255,.03);
+    }
+    .goalbox h3{margin:0 0 8px; font-size:16px}
+    .goalbig{
+      font-size:32px;
+      letter-spacing:-.02em;
+      margin:0 0 6px;
+    }
+    .small{color:var(--muted); font-size:13px; margin:0}
+    .mini-grid{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .mini{
+      padding:12px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .mini strong{display:block; font-size:13px}
+    .mini span{display:block; font-size:12px; color:var(--muted); margin-top:4px}
+
+    section{padding:18px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:14px; flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(20px, 2vw, 28px);
+      letter-spacing:-.01em;
+    }
+    .section-title p{margin:0; color:var(--muted); max-width:72ch}
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .grid-3{grid-template-columns: 1fr}
+      .mini-grid{grid-template-columns: 1fr}
+    }
+    .block{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .block h3{margin:0 0 8px; font-size:16px}
+    .block ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .block li{margin:6px 0}
+
+    .packages{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 1100px){
+      .packages{grid-template-columns: 1fr}
+    }
+    .pkg{
+      padding:18px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(700px 240px at 20% 20%, rgba(139,92,246,.18), transparent 60%),
+        rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
+    }
+    .pkg::after{
+      content:"";
+      position:absolute;
+      inset:-2px -2px auto auto;
+      width:200px; height:200px;
+      background: radial-gradient(circle at 30% 30%, rgba(246,199,68,.18), transparent 60%);
+      transform: translate(25%,-25%);
+      pointer-events:none;
+    }
+    .pkg .tag{
+      display:inline-flex;
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: rgba(245,245,255,.9);
+    }
+    .pkg h3{margin:10px 0 6px}
+    .price{
+      font-size:28px;
+      letter-spacing:-.02em;
+      margin:0 0 10px;
+    }
+    .price small{font-size:13px; color:var(--muted)}
+    .pkg ul{margin:0; padding-left:18px; color:var(--muted)}
+    .pkg li{margin:7px 0}
+    .pkg .btnrow{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+
+    .donate-card{
+      padding:18px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(600px 220px at 85% 10%, rgba(139,92,246,.25), transparent 60%),
+        radial-gradient(600px 220px at 10% 30%, rgba(246,199,68,.16), transparent 60%),
+        rgba(255,255,255,.03);
+    }
+    .donate-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width: 920px){
+      .donate-grid{grid-template-columns: 1fr}
+    }
+    .pay-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 920px){
+      .pay-grid{grid-template-columns: 1fr}
+    }
+    .pay{
+      padding:14px;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .pay strong{display:block; margin-bottom:8px}
+    .pay code{
+      display:block;
+      padding:10px 10px;
+      border-radius: 14px;
+      border:1px dashed rgba(255,255,255,.22);
+      background: rgba(0,0,0,.22);
+      color: rgba(245,245,255,.92);
+      word-break: break-all;
+      font-size:13px;
+    }
+    .pay .actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .timeline{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .timeline{grid-template-columns: 1fr}
+    }
+    .step{
+      padding:18px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .step .num{
+      width:34px; height:34px;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius: 12px;
+      background: rgba(139,92,246,.22);
+      border:1px solid rgba(255,255,255,.16);
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .step h3{margin:0 0 8px}
+    .step p{margin:0; color:var(--muted)}
+    .step ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .step li{margin:6px 0}
+
+    .footer{
+      margin-top:10px;
+      padding:18px 0 30px;
+      color:var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    .kicker{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      flex-wrap:wrap;
+    }
+    .note{font-size:12px}
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(12px);
+      color: rgba(245,245,255,.92);
+      font-size: 13px;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index: 60;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    /* GOAL + CHEER PHOTO SPLIT */
+.goal-split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:18px;
+  align-items:stretch;
+  margin-top: 18px;
+}
+
+/* Make both sides feel equal */
+.goal-photo,
+.goal-card{
+  min-height: 420px;   /* tweak 380–520 */
+  min-width: 0;
+}
+
+/* Left photo crops to match card height */
+.goal-photo{
+  padding:0;
+  overflow:hidden;
+  position:relative;
+  border-radius:26px;
+}
+
+.goal-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 25%; /* shows faces better; tweak */
+  display:block;
+}
+
+/* Subtle overlay to match theme */
+.goal-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to bottom, rgba(11,11,16,.06), rgba(11,11,16,.35));
+  pointer-events:none;
+}
+
+@media (max-width: 900px){
+  .goal-split{ grid-template-columns: 1fr; }
+  .goal-photo{ min-height: 260px; }
+  .goal-card{ min-height: auto; }
+}
+
+  </style>
+</head>
+
+<body>
+<!-- 1) Add this right after <body> -->
+<div class="bg-watermark" aria-hidden="true"></div>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">
+        <!-- Put your logo files in the same folder OR in /assets and update these src paths -->
+        <img src="assets/LH Logo.png" alt="Liberty Hill Panthers logo" />
+        <div class="title">
+          <strong>LIBERTY HILL YOUTH FOOTBALL & CHEER</strong>
+          <span>Fundraiser • Scholarships • Equipment • Cheer • Town Pride</span>
+        </div>
+      </a>
+
+      <div class="nav" aria-label="Page navigation">
+        <a href="#impact">Impact</a>
+        <a href="#packages">Sponsorship Packages</a>
+        <a href="#donate">Donate</a>
+        <a href="#timeline">Timeline</a>
+      </div>
+
+      <a class="btn primary" href="#donate" aria-label="Jump to donate section">Donate / Sponsor</a>
+    </div>
+  </div>
+
+<section class="hero-banner">
+  <div class="hero-banner-overlay"></div>
+
+  <div class="hero-banner-content">
+    <h1>Forged on the Field, Built by Our Community</h1>
+    <p>Support football & cheer • Scholarships • Equipment • Panther Pride</p>
+
+    <div class="hero-banner-actions">
+      <a href="#donate" class="btn primary">Donate Now</a>
+      <a href="#packages" class="btn gold">Become a Sponsor</a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- HERO -->
+  <main id="top" class="wrap hero">
+    <div class="hero-grid">
+      <div class="card hero-main">
+        <div class="eyebrow">🐾 Panther Nation • Liberty Hill, TX</div>
+        <h1>Help Build the Future of Liberty Hill Football &amp; Cheer</h1>
+        <p class="lead">
+          We’re raising funds to ensure <strong>every kid can participate</strong>, strengthen our program with safer training equipment,
+          support cheer competition fees, and celebrate our athletes with end-of-season awards.
+        </p>
+
+        <div class="pill-row" role="list" aria-label="Quick impact highlights">
+          <div class="pill" role="listitem">🎓 <b>Scholarships</b> for registration</div>
+          <div class="pill" role="listitem">📣 Cheer competition fees</div>
+          <div class="pill" role="listitem">🏈 5-man &amp; tackling sleds</div>
+          <div class="pill" role="listitem">🏆 Medals &amp; trophies</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn gold" href="#packages">View Packages</a>
+          <a class="btn primary" href="#donate">Donate Now</a>
+          <a class="btn" href="#business">Business Sponsor Info</a>
+        </div>
+
+
+
+        <p class="small" style="margin-top:14px;">
+          Supporting: <strong>6–7 tackle teams</strong>, <strong>6–7 cheer teams</strong>, and <strong>1 flag team</strong>.
+          We have <strong>4 home games</strong> for sponsor visibility.
+        </p>
+      </div>
+
+  <!-- NEW: IMAGE PANEL (ADD THIS) -->
+  <div class="card hero-image" aria-label="Liberty Hill landmark">
+    <img
+      src="assets/LH Water tower.jpg"
+      alt="Liberty Hill water tower"
+    />
+  </div>
+     
+    </div>
+  </main>
+
+  <!-- GOAL + CHEER PHOTO SPLIT -->
+<section class="wrap goal-split" id="goal">
+  <!-- LEFT: CHEER PHOTO -->
+  <div class="card goal-photo" aria-label="Liberty Hill Cheer">
+    <img src="assets/LH cheer.jpg" alt="Liberty Hill Cheer team" />
+  </div>
+
+  <!-- RIGHT: GOAL CARD (PASTE YOUR CUT ASIDE HERE) -->
+  <aside class="card goal-card" aria-label="Fundraising Goal and program summary">
+    <!-- PASTE YOUR EXISTING GOAL CONTENT HERE -->
+      <aside class="card hero-side" aria-label="Goal and program summary">
+        <div class="goalbox">
+          <h3>Fundraising Goal</h3>
+          <p class="goalbig">$15,000+</p>
+          <p class="small">Launch: <strong>ASAP</strong> • Community-first • Transparent spending</p>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <strong>Home Games</strong>
+              <span>4 opportunities for banners &amp; shoutouts</span>
+            </div>
+            <div class="mini">
+              <strong>Program Reach</strong>
+              <span>Multiple age groups across football &amp; cheer</span>
+            </div>
+            <div class="mini">
+              <strong>What We Fund</strong>
+              <span>Scholarships, equipment, cheer fees, awards</span>
+            </div>
+            <div class="mini">
+              <strong>How to Give</strong>
+              <span>PayPal, Venmo, Zelle</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="block" style="margin-top:14px;">
+          <h3>Message to Liberty Hill</h3>
+          <p class="small" style="margin:0;">
+            This isn’t just football. This is <strong>Liberty Hill pride</strong> — investing in kids, families, and the community we love.
+          </p>
+        </div>
+      </aside>
+  </aside>
+
+</section>
+
+  
+
+  <!-- IMPACT -->
+  <section id="impact" class="wrap">
+    <div class="section-title">
+      <div>
+        <h2>Where Your Donation Goes</h2>
+        <p>Clear, specific impact — so donors know their support directly helps our kids and our program.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="block">
+        <h3>🎓 Scholarships</h3>
+        <p class="small">Helping families cover registration so every child can play and cheer.</p>
+        <ul>
+          <li>Registration fee assistance</li>
+          <li>Hardship support (discreet + respectful)</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>📣 Cheer Support</h3>
+        <p class="small">Cheer competition fees and team needs so our squads can represent Liberty Hill strong.</p>
+        <ul>
+          <li>Competition registration fees</li>
+          <li>Program essentials as needed</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>🏈 Equipment &amp; Safety</h3>
+        <p class="small">Better training equipment = better skill development and safer practices.</p>
+        <ul>
+          <li>5-man sled</li>
+          <li>Tackling sleds</li>
+          <li>Practice &amp; safety gear upgrades</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" class="wrap">
+    <div class="section-title">
+      <div>
+        <h2>Sponsorship &amp; Donation Packages</h2>
+        <p>Designed for family/friends, local businesses, and major donors — with real value and visible recognition.</p>
+      </div>
+      <a class="btn primary" href="#donate">Donate / Sponsor</a>
+    </div>
+
+    <div class="packages">
+      <!-- FAMILY / FRIENDS -->
+      <div class="pkg" aria-label="Panther Pride Boosters packages">
+        <span class="tag">For Family, Friends &amp; Alumni</span>
+        <h3>Panther Pride Boosters</h3>
+        <p class="small">Simple giving levels that make a real impact — scholarships, cheer fees, equipment, and awards.</p>
+
+        <div style="display:grid; gap:12px; margin-top:12px;">
+          <div class="block" style="margin:0;">
+            <div class="price">$50 <small>Panther Booster</small></div>
+            <ul>
+              <li>Name listed on sponsor page</li>
+              <li>Social media thank-you</li>
+            </ul>
+          </div>
+          <div class="block" style="margin:0;">
+            <div class="price">$150 <small>Game Day Booster</small></div>
+            <ul>
+              <li>All above benefits</li>
+              <li>Listed in digital game-day program</li>
+            </ul>
+          </div>
+          <div class="block" style="margin:0;">
+            <div class="price">$300 <small>Player Sponsor</small></div>
+            <ul>
+              <li>Directly supports scholarships/equipment</li>
+              <li>Team photo + season thank-you update</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOCAL BUSINESS -->
+      <div id="business" class="pkg" aria-label="Local business sponsorships">
+        <span class="tag">For Local Businesses</span>
+        <h3>Community Business Sponsors</h3>
+        <p class="small">Support local kids and get visibility at <strong>all 4 home games</strong> + online recognition.</p>
+
+        <p class="price">$500–$2,000 <small>per sponsorship</small></p>
+        <ul>
+          <li><strong>$500</strong> Game Day Banner Sponsor (banner at home games)</li>
+          <li><strong>$1,000</strong> Tailgate Sponsor (signage + shoutouts)</li>
+          <li><strong>$2,000</strong> Pre-Game Dinner Sponsor (night before games)</li>
+          <li>Logo/name on fundraiser page + social thank-yous</li>
+        </ul>
+
+        <div class="btnrow">
+          <a class="btn gold" href="#donate">Sponsor Now</a>
+          <a class="btn" href="#timeline">See Outreach Plan</a>
+        </div>
+
+        <p class="small" style="margin-top:12px;">
+          Optional add-ons: “Sponsored by” announcements, end-of-season award recognition, tailgate signage.
+        </p>
+      </div>
+
+      <!-- LEGACY / MAJOR -->
+      <div class="pkg" aria-label="Legacy and major donor sponsorships">
+        <span class="tag">For Major Donors</span>
+        <h3>Legacy &amp; Major Sponsorships</h3>
+        <p class="small">Make a lasting impact with equipment, camp, or scholarship sponsorships — recognition included.</p>
+
+        <div class="price">$3,000+ <small>lasting program impact</small></div>
+        <ul>
+          <li><strong>$3,000</strong> Equipment Sponsor (name on sponsored equipment)</li>
+          <li><strong>$5,000</strong> Offseason Camp Sponsor (featured all season)</li>
+          <li><strong>$10,000+</strong> Panther Legacy Builder (named scholarship + premier recognition)</li>
+          <li>Recognition at awards ceremony + on the website</li>
+        </ul>
+
+        <div class="btnrow">
+          <a class="btn primary" href="#donate">Become a Legacy Sponsor</a>
+          <a class="btn" href="#impact">View Impact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate" class="wrap">
+    <div class="section-title">
+      <div>
+        <h2>Donate Now</h2>
+        <p>PayPal, Venmo, and Zelle — fast, secure, and easy. Add a note like: <strong>“Panthers Fundraiser”</strong>.</p>
+      </div>
+    </div>
+
+    <div class="donate-card">
+      <div class="donate-grid">
+        <div>
+          <h3 style="margin:0 0 10px;">Quick Donate</h3>
+          <p class="small" style="margin:0 0 14px;">
+            Put your donation link(s) here. If you don’t have PayPal.me yet, create one and paste it below.
+          </p>
+
+          <div class="pay-grid">
+            <div class="pay">
+              <strong>PayPal</strong>
+              <code id="paypalLink">https://paypal.me/YOURPAYPALME</code>
+              <div class="actions">
+                <a class="btn primary" id="paypalBtn" href="https://paypal.me/YOURPAYPALME" target="_blank" rel="noreferrer">Open PayPal</a>
+                <button class="btn" type="button" data-copy="#paypalLink">Copy Link</button>
+              </div>
+            </div>
+
+            <div class="pay">
+              <strong>Venmo</strong>
+              <code id="venmoId">@LibertyHillPanthers</code>
+              <div class="actions">
+                <button class="btn primary" type="button" data-copy="#venmoId">Copy Venmo</button>
+                <span class="small">Note: “Panthers Fundraiser”</span>
+              </div>
+            </div>
+
+            <div class="pay">
+              <strong>Zelle</strong>
+              <code id="zelleId">EMAIL_OR_PHONE_FOR_ZELLE</code>
+              <div class="actions">
+                <button class="btn primary" type="button" data-copy="#zelleId">Copy Zelle</button>
+                <span class="small">Note: “Panthers Fundraiser”</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="block" style="margin-top:14px;">
+            <h3>Suggested Giving</h3>
+            <p class="small" style="margin:0;">If you’re not sure what amount to choose:</p>
+            <ul>
+              <li><strong>$50</strong> helps cover awards and essentials</li>
+              <li><strong>$150</strong> supports cheer fees or equipment needs</li>
+              <li><strong>$300</strong> can sponsor a player or scholarship support</li>
+              <li><strong>$500+</strong> makes a major impact (equipment + scholarships)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="block">
+            <h3>What Sponsors Get</h3>
+            <ul>
+              <li>Recognition on the fundraiser page</li>
+              <li>Social media shoutouts</li>
+              <li>Business banners displayed at <strong>4 home games</strong></li>
+              <li>Optional: announcements, tailgate signage, award recognition</li>
+            </ul>
+          </div>
+
+          <div class="block" style="margin-top:14px;">
+            <h3>Want to Sponsor a Specific Item?</h3>
+            <p class="small" style="margin:0;">
+              Equipment sponsors and major donors can target:
+              <strong>5-man sled</strong>, <strong>tackling sleds</strong>, <strong>scholarship fund</strong>, or <strong>offseason camp</strong>.
+            </p>
+            <div class="btnrow" style="margin-top:12px;">
+              <a class="btn gold" href="mailto:YOUR_EMAIL@EXAMPLE.COM?subject=Liberty%20Hill%20Panthers%20Sponsorship">Email to Sponsor</a>
+              <a class="btn" href="#packages">View Packages</a>
+            </div>
+            <p class="note" style="margin-top:10px;">
+              Replace <code>YOUR_EMAIL@EXAMPLE.COM</code> with the fundraiser coordinator email.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="wrap">
+    <div class="section-title">
+      <div>
+        <h2>Outreach Timeline &amp; Strategy (Start ASAP)</h2>
+        <p>Simple phases that work: launch to families first, then businesses, then major donors — and keep sponsors engaged weekly.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Week 1: Launch + Momentum</h3>
+        <p>Publish this page and drive immediate donations with parent networks.</p>
+        <ul>
+          <li>Send link to parent group chats + email lists</li>
+          <li>Post in Liberty Hill community Facebook groups</li>
+          <li>Ask each family to share once</li>
+          <li>Goal: early “wins” to build credibility</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Week 2: Local Business Push</h3>
+        <p>Assign 10–15 businesses per parent/coordinator team.</p>
+        <ul>
+          <li>In-person visit + QR code to this page</li>
+          <li>Pitch: 4 home games of visibility + supporting local kids</li>
+          <li>Close banner + tailgate sponsors</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Week 3: Major Donors &amp; Legacy Sponsors</h3>
+        <p>Personal outreach works best for $3k+ commitments.</p>
+        <ul>
+          <li>Offer equipment / camp / scholarship naming opportunities</li>
+          <li>Invite to a practice or game as a guest</li>
+          <li>Goal: 1–2 legacy sponsors = huge progress toward $15k+</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <h3>In-Season: Keep Sponsors Proud</h3>
+        <p>Recognition drives repeat giving and bigger community energy.</p>
+        <ul>
+          <li>Weekly sponsor shoutouts + banner photos</li>
+          <li>Post “Impact updates” (scholarships funded, gear purchased)</li>
+          <li>End-of-season thank-you recap</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="wrap footer">
+    <div class="kicker">
+      <div>
+        <strong>Liberty Hill Panthers</strong>
+        <div class="note">Replace placeholders (PayPal/Venmo/Zelle/email) and logo file paths, then publish.</div>
+      </div>
+      <a class="btn" href="#top">Back to top</a>
+    </div>
+    <p class="note" style="margin-top:10px;">
+      Tip: Put both of your logo images in <code>/assets</code> and name them <code>LH_Logo.png</code> and <code>LH_Texas_Logo.jpg</code>,
+      or update the <code>src</code> paths in the header.
+    </p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">Copied!</div>
+
+  <script>
+    // Copy-to-clipboard for Venmo/Zelle/PayPal strings
+    const toast = document.getElementById('toast');
+
+    function showToast(msg){
+      toast.textContent = msg || 'Copied!';
+      toast.classList.add('show');
+      window.clearTimeout(showToast._t);
+      showToast._t = window.setTimeout(()=>toast.classList.remove('show'), 1400);
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast('Copied to clipboard');
+      }catch(e){
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast('Copied');
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if(!btn) return;
+      const sel = btn.getAttribute('data-copy');
+      const el = document.querySelector(sel);
+      if(!el) return;
+      copyText(el.textContent.trim());
+    });
+
+    // Keep PayPal button in sync if user edits paypalLink text
+    const paypalLinkEl = document.getElementById('paypalLink');
+    const paypalBtn = document.getElementById('paypalBtn');
+    const obs = new MutationObserver(() => {
+      const href = paypalLinkEl.textContent.trim();
+      paypalBtn.setAttribute('href', href);
+    });
+    obs.observe(paypalLinkEl, { childList:true, characterData:true, subtree:true });
+  </script>
+</body>
+</html>
