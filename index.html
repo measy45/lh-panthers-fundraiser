@@ -171,17 +171,17 @@
 
 
 
-/* Legacy buttons get gold stars */
-button[data-campaign="legacy"]::before,
-button[data-campaign="legacy"]::after{
+/* Major buttons get gold stars */
+button[data-campaign="Major"]::before,
+button[data-campaign="Major"]::after{
   content: "★";
   color: var(--gold);
   margin: 0 6px;
   font-size: 14px;
 }
 
-/* Slight emphasis for legacy buttons */
-button[data-campaign="legacy"]{
+/* Slight emphasis for Major buttons */
+button[data-campaign="Major"]{
   border-color: rgba(246,199,68,.5);
   background: rgba(246,199,68,.08);
 }
@@ -920,15 +920,15 @@ SHIRT CARD
   color: var(--gold);
 }
 
-/* Trophy icons around Legacy title */
-.pkg[aria-label="Legacy and major donor sponsorships"] h3{
+/* Trophy icons around Major title */
+.pkg[aria-label="Major donor sponsorships"] h3{
   display:inline-flex;
   align-items:center;
   gap:8px;
 }
 
-.pkg[aria-label="Legacy and major donor sponsorships"] h3::before,
-.pkg[aria-label="Legacy and major donor sponsorships"] h3::after{
+.pkg[aria-label="Major donor sponsorships"] h3::before,
+.pkg[aria-label="Major donor sponsorships"] h3::after{
   content:"🏆";
   font-size:18px;
 }
@@ -1457,10 +1457,10 @@ SHIRT CARD
   </div>
 </div>
 
-<!-- LEGACY -->
-<div class="pkg" aria-label="Legacy and major donor sponsorships">
+<!-- MAJOR -->
+<div class="pkg" aria-label="Major donor sponsorships">
   <span class="tag">For Major Donors</span>
-  <h3>Legacy &amp; Major Sponsorships</h3>
+  <h3>Major Sponsorships</h3>
   <p class="small">
     Make a lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.
   </p>
@@ -1487,7 +1487,7 @@ SHIRT CARD
     </div>
 
     <div class="block" style="margin:0;">
-      <div class="price">$10,000+ <small>Panther Legacy Builder</small></div>
+      <div class="price">$10,000+ <small>Panther Major Builder</small></div>
       <ul>
         <li>Premier recognition on website</li>
         <li>Recognized as major scholarship/program supporter</li>
@@ -1500,8 +1500,8 @@ SHIRT CARD
   <div class="btnrow">
     <button class="btn campaign-switch"
       type="button"
-      data-campaign="legacy">
-      Make a Legacy Gift
+      data-campaign="Major">
+      Make a Major Gift
     </button>
   </div>
 </div>
@@ -1574,8 +1574,8 @@ SHIRT CARD
 
         <button class="btn campaign-switch campaign-switch-inline"
           type="button"
-          data-campaign="legacy">
-          Legacy
+          data-campaign="Major">
+          Major
         </button>
       </div>
     </div>
@@ -1583,7 +1583,7 @@ SHIRT CARD
     <div class="booster-donate-frame">
       <iframe
         id="campaignFrame"
-        src="https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_24e14601a9bd&account_id=act_5c611f36ad14"
+        src="https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_24e14601a9bd&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lMyKhNsgMUTAoBiGsECdUjD30znS00q6SCLid6LzTyRgEijZJOo52VgtzntFT73a8XjjMOpLh00rGOckFAp"
         title="Donation Form"
         loading="lazy"
         allow="payment *">
@@ -1755,8 +1755,8 @@ SHIRT CARD
       text: "Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition.",
       iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_43ad6a917bb8&account_id=act_5c611f36ad14"
     },
-    legacy: {
-      title: "Make a Legacy Gift",
+    Major: {
+      title: "Make a Major Gift",
       text: "Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.",
       iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_46d779ef8c4b&account_id=act_5c611f36ad14"
     }
