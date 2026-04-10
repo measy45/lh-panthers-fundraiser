@@ -610,7 +610,227 @@
   .goal-photo{ min-height: 260px; }
   .goal-card{ min-height: auto; }
 }
+.goal-card{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+}
 
+.goal-card .goalbox{
+  margin-bottom:14px;
+}
+
+.goal-card .block{
+  margin-top:0;
+}
+
+/* =================
+SHIRT CARD
+=========== */
+
+.shirt-card{
+  padding:18px;
+  margin: 0 auto 18px;
+  max-width: var(--max);
+  border-radius: var(--radius2);
+}
+
+.shirt-content{
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  gap:18px;
+  align-items:center;
+}
+
+.shirt-text{
+  min-width:0;
+}
+
+.shirt-text h3{
+  margin:8px 0 8px;
+  font-size: clamp(22px, 2vw, 30px);
+}
+
+.shirt-text .small{
+  margin:0;
+  color:var(--muted);
+  max-width:60ch;
+}
+
+.shirt-image{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.shirt-image img{
+  display:block;
+  width:100%;
+  max-width:280px;
+  height:auto;
+  border-radius:12px;
+}
+
+@media (max-width: 900px){
+  .shirt-content{
+    grid-template-columns: 1fr;
+    text-align:left;
+  }
+
+  .shirt-image{
+    justify-content:flex-start;
+  }
+
+  .shirt-image img{
+    max-width:220px;
+  }
+}
+
+/* =========================
+   Donately
+========================= */
+.inline-donate-wrap{
+  margin-top:18px;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+}
+
+.inline-donate-title{
+  margin:0 0 6px;
+  font-size:18px;
+}
+
+.inline-donate-copy{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+#dntly-donation-form-boosters{
+  min-height: 520px;
+  width: 100%;
+}
+
+#dntly-donation-form-boosters iframe,
+#dntly-donation-form-boosters form{
+  width:100% !important;
+  max-width:100% !important;
+}
+
+#dntly-donation-form-boosters{
+  min-height: 520px;
+  width: 100%;
+  display: block;
+}
+.booster-donate-full{
+  margin-top:18px;
+  padding:22px;
+  border-radius:26px;
+}
+
+.booster-donate-header h3{
+  margin:0 0 8px;
+  font-size:28px;
+  letter-spacing:-.02em;
+}
+
+.booster-donate-header p{
+  margin:0 0 16px;
+  color:var(--muted);
+  max-width:70ch;
+}
+
+.booster-donate-frame{
+  width:100%;
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.booster-donate-frame iframe{
+  width:100%;
+  min-height:760px;
+  border:0;
+  display:block;
+  background:#fff;
+}
+
+@media (max-width: 900px){
+  .booster-donate-full{
+    padding:16px;
+  }
+
+  .booster-donate-frame iframe{
+    min-height:820px;
+  }
+}
+
+.campaign-switch.active {
+  outline: 2px solid var(--accent);
+  transform: scale(1.02);
+}
+
+.campaign-toggle-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.campaign-switch-inline{
+  min-width:120px;
+}
+
+.booster-donate-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.booster-donate-header > div:first-child{
+  flex:1 1 420px;
+}
+
+.campaign-toggle-row{
+  flex:0 0 auto;
+}
+
+.campaign-switch.active{
+  outline:2px solid rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px){
+  .campaign-toggle-row{
+    width:100%;
+  }
+
+  .campaign-switch-inline{
+    flex:1 1 100%;
+  }
+}
+
+.pkg{
+  display:flex;
+  flex-direction:column;
+}
+
+.pkg .btnrow{
+  margin-top:14px;
+}
+
+.pkg .btnrow .campaign-switch,
+.pkg .btnrow .btn{
+  width:100%;
+}
+
+.pkg > div[style*="display:grid"]{
+  flex:1 1 auto;
+}
 /* =========================
    IMAGE CAROUSEL
 ========================= */
@@ -763,6 +983,11 @@
         <p class="lead">
           We’re raising funds to ensure <strong>every kid can participate</strong>, strengthen our program with safer training equipment,
           support cheer competition fees, and celebrate our athletes with end-of-season awards.
+<br>
+<br>
+          Liberty Hill Youth Football & Cheer (LHYFC) is a nonprofit, 501(c)(3) volunteer-run organization located in Liberty Hill, Texas. 
+          It is designed to foster community, sportsmanship, and teamwork among youth athletes, with operations supported by volunteers
+          and tax-exempt status as an educational/amateur sports institution. 
         </p>
 
         <div class="pill-row" role="list" aria-label="Quick impact highlights">
@@ -846,149 +1071,256 @@
   </div>
 
   <!-- RIGHT: GOAL CARD (PASTE YOUR CUT ASIDE HERE) -->
-  <aside class="card goal-card" aria-label="Fundraising Goal and program summary">
-    <!-- PASTE YOUR EXISTING GOAL CONTENT HERE -->
-      <aside class="card hero-side" aria-label="Goal and program summary">
-        <div class="goalbox">
-          <h3>Fundraising Goal</h3>
-          <p class="goalbig">$15,000+</p>
-          <p class="small">Launch: <strong>ASAP</strong> • Community-first • Transparent spending</p>
+<aside class="card goal-card" aria-label="Fundraising Goal and sponsor information">
+  <div class="goalbox">
+    <h3>Fundraising Goal</h3>
+    <p class="goalbig">$15,000+</p>
+    <p class="small">Launch: <strong>ASAP</strong> • Community-first • Transparent spending</p>
 
-          <div class="mini-grid">
-            <div class="mini">
-              <strong>Home Games</strong>
-              <span>4 opportunities for banners &amp; shoutouts</span>
-            </div>
-            <div class="mini">
-              <strong>Program Reach</strong>
-              <span>Multiple age groups across football &amp; cheer</span>
-            </div>
-            <div class="mini">
-              <strong>What We Fund</strong>
-              <span>Scholarships, equipment, cheer fees, awards</span>
-            </div>
-            <div class="mini">
-              <strong>How to Give</strong>
-              <span>PayPal, Venmo, Zelle</span>
-            </div>
-          </div>
-        </div>
+    <div class="mini-grid">
+      <div class="mini">
+        <strong>Home Games</strong>
+        <span>4 opportunities for banners &amp; shoutouts</span>
+      </div>
+      <div class="mini">
+        <strong>Program Reach</strong>
+        <span>Multiple age groups across football &amp; cheer</span>
+      </div>
+      <div class="mini">
+        <strong>What We Fund</strong>
+        <span>Scholarships, equipment, cheer fees, awards</span>
+      </div>
+      <div class="mini">
+        <strong>How to Give</strong>
+        <span>Use the campaign forms below</span>
+      </div>
+    </div>
+  </div>
 
-        <div class="block" style="margin-top:14px;">
-          <h3>Message to Liberty Hill</h3>
-          <p class="small" style="margin:0;">
-            This isn’t just football. This is <strong>Liberty Hill pride</strong> — investing in kids, families, and the community we love.
-          </p>
-        </div>
-      </aside>
-  </aside>
+  <div class="block" style="margin-top:14px;">
+    <h3>What Sponsors Get</h3>
+    <ul>
+      <li>Recognition on the fundraiser page</li>
+      <li>Social media shoutouts</li>
+      <li>Business banners displayed at <strong>4 home games</strong></li>
+      <li>Optional: announcements, tailgate signage, award recognition</li>
+    </ul>
+  </div>
+
+  <div class="block" style="margin-top:14px;">
+    <h3>Want to Sponsor a Specific Item?</h3>
+    <p class="small" style="margin:0;">
+      Equipment sponsors and major donors can target:
+      <strong>5-man sled</strong>, <strong>tackling sleds</strong>, <strong>scholarship fund</strong>, or <strong>offseason camp</strong>.
+    </p>
+
+    <div class="btnrow" style="margin-top:12px;">
+      <a class="btn gold"
+   href="mailto:president@lhyfc.org?subject=Liberty%20Hill%20Panthers%20Sponsorship&body=Hi%2C%0A%0AI%E2%80%99m%20interested%20in%20becoming%20a%20sponsor.%20Please%20send%20more%20details.%0A%0ABusiness%20Name%3A%0AContact%20Name%3A%0APhone%3A%0A%0AThank%20you!">
+  Email to LHYFC  
+</a>
+      <a class="btn" href="#packages">View Packages</a>
+    </div>
+
+    <p class="note" style="margin-top:10px;">
+     
+    </p>
+  </div>
+</aside>
 
 </section>
 
-  <!-- PACKAGES -->
-  <section id="packages" class="wrap">
-    <div class="section-title">
-      <div>
-        <h2>Sponsorship &amp; Donation Packages</h2>
-        <p>Designed for family/friends, local businesses, and major donors — with real value and visible recognition.</p>
-      </div>
-      <a class="btn primary" href="#donate">Donate / Sponsor</a>
-    </div>
-
-    <div class="packages">
-      <!-- FAMILY / FRIENDS -->
-      <div class="pkg" aria-label="Panther Pride Boosters packages">
-        <span class="tag">For Family, Friends &amp; Alumni</span>
-        <h3>Panther Pride Boosters</h3>
-        <p class="small">Simple giving levels that make a real impact — scholarships, cheer fees, equipment, and awards.</p>
-
-        <div style="display:grid; gap:12px; margin-top:12px;">
-          <div class="block" style="margin:0;">
-            <div class="price">$50 <small>Panther Booster</small></div>
-            <ul>
-              <li>Name listed on sponsor page</li>
-              <li>Social media thank-you</li>
-            </ul>
-          </div>
-          <div class="block" style="margin:0;">
-            <div class="price">$150 <small>Game Day Booster</small></div>
-            <ul>
-              <li>All above benefits</li>
-              <li>Listed in digital game-day program</li>
-            </ul>
-          </div>
-          <div class="block" style="margin:0;">
-            <div class="price">$300 <small>Player Sponsor</small></div>
-            <ul>
-              <li>Directly supports scholarships/equipment</li>
-              <li>Team photo + season thank-you update</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- LOCAL BUSINESS -->
-      <div id="business" class="pkg" aria-label="Local business sponsorships">
-        <span class="tag">For Local Businesses</span>
-        <h3>Community Business Sponsors</h3>
-        <p class="small">Support local kids and get visibility at <strong>all 4 home games</strong> + online recognition.</p>
-
-        <p class="price">$500–$2,000 <small>per sponsorship</small></p>
-        <ul>
-          <li><strong>$500</strong> Game Day Banner Sponsor (banner at home games)</li>
-          <li><strong>$1,000</strong> Tailgate Sponsor (signage + shoutouts)</li>
-          <li><strong>$2,000</strong> Pre-Game Dinner Sponsor (night before games)</li>
-          <li>Logo/name on fundraiser page + social thank-yous</li>
-        </ul>
-
-        <div class="btnrow">
-          <a class="btn gold" href="#donate">Sponsor Now</a>
-          <a class="btn" href="#timeline">See Outreach Plan</a>
-        </div>
-
-        <p class="small" style="margin-top:12px;">
-          Optional add-ons: “Sponsored by” announcements, end-of-season award recognition, tailgate signage.
+<!-- FUNDRAISER SHIRT CARD -->
+<section class="wrap">
+  <div class="card shirt-card">
+    <div class="shirt-content">
+      <div class="shirt-text">
+        <span class="tag">Coming Soon</span>
+        <h3>2026 Fundraiser Shirts</h3>
+        <p class="small">
+          T-shirts for the 2026 season coming soon. Support the program and rep Liberty Hill all season long.
         </p>
-      </div>
-
-      <!-- LEGACY / MAJOR -->
-      <div class="pkg" aria-label="Legacy and major donor sponsorships">
-        <span class="tag">For Major Donors</span>
-        <h3>Legacy &amp; Major Sponsorships</h3>
-        <p class="small">Make a lasting impact with equipment, camp, or scholarship sponsorships — recognition included.</p>
-
-        <div class="price">$3,000+ <small>lasting program impact</small></div>
-        <ul>
-          <li><strong>$3,000</strong> Equipment Sponsor (name on sponsored equipment)</li>
-          <li><strong>$5,000</strong> Offseason Camp Sponsor (featured all season)</li>
-          <li><strong>$10,000+</strong> Panther Legacy Builder (named scholarship + premier recognition)</li>
-          <li>Recognition at awards ceremony + on the website</li>
-        </ul>
 
         <div class="btnrow">
-          <a class="btn primary" href="#donate">Become a Legacy Sponsor</a>
-          <a class="btn" href="#impact">View Impact</a>
+          <button class="btn" disabled>Available Soon</button>
         </div>
       </div>
-    </div>
-  </section>
 
-<!-- IMAGE CAROUSEL -->
+      <div class="shirt-image">
+        <img src="Liberty Hill Football T-shirt design.png" alt="Liberty Hill fundraiser shirt design" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PACKAGES -->
+<section id="packages" class="wrap">
+  <div class="section-title">
+    <div>
+      <h2>Sponsorship &amp; Donation Packages</h2>
+      <p>Designed for family/friends, local businesses, and major donors — with real value and visible recognition.</p>
+    </div>
+    <a class="btn primary" href="#giving-form">Donate / Sponsor</a>
+  </div>
+
+  <div class="packages">
+
+    <!-- BOOSTERS -->
+<div class="pkg" aria-label="Panther Pride Boosters packages">
+  <span class="tag">For Family, Friends &amp; Alumni</span>
+  <h3>Panther Pride Boosters</h3>
+  <p class="small">
+    Community-powered giving that helps fund scholarships, cheer fees, equipment, and athlete support.
+  </p>
+
+  <div style="display:grid; gap:12px; margin-top:12px;">
+    <div class="block" style="margin:0;">
+      <div class="price">$50 <small>Panther Pride Booster</small></div>
+      <ul>
+        <li>Name listed on supporter page</li>
+        <li>Included in group social media thank-you</li>
+      </ul>
+    </div>
+
+    <div class="block" style="margin:0;">
+      <div class="price">$150 <small>Game Day Booster</small></div>
+      <ul>
+        <li>Everything above</li>
+        <li>Listed in digital game-day program</li>
+        <li>Included in one supporter spotlight</li>
+      </ul>
+    </div>
+
+    <div class="block" style="margin:0;">
+      <div class="price">$300 <small>Player Support Sponsor</small></div>
+      <ul>
+        <li>Everything above</li>
+        <li>Recognized as scholarship/player support donor</li>
+        <li>Team photo + end-of-season thank-you update</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="btnrow">
+    <button class="btn primary campaign-switch"
+      type="button"
+      data-campaign="boosters">
+      Join the Panther Pride Booster Club
+    </button>
+  </div>
+</div>
+
+ <!-- BUSINESS -->
+<div id="business" class="pkg" aria-label="Local business sponsorships">
+  <span class="tag">For Local Businesses</span>
+  <h3>Community Business Sponsors</h3>
+  <p class="small">
+    Support Liberty Hill youth football and cheer while gaining meaningful local visibility and community recognition.
+  </p>
+
+  <div style="display:grid; gap:12px; margin-top:12px;">
+    <div class="block" style="margin:0;">
+      <div class="price">$500 <small>Banner Sponsor</small></div>
+      <ul>
+        <li>Business name/logo on sponsor page</li>
+        <li>Banner displayed at home games</li>
+        <li>Included in group social media thank-you</li>
+      </ul>
+    </div>
+
+    <div class="block" style="margin:0;">
+      <div class="price">$1,000 <small>Game Day Sponsor</small></div>
+      <ul>
+        <li>Everything above</li>
+        <li>Dedicated game-day social spotlight</li>
+        <li>Digital game-day recognition</li>
+        <li>Announcer thank-you at one home game</li>
+      </ul>
+    </div>
+
+    <div class="block" style="margin:0;">
+      <div class="price">$2,000 <small>Community Champion Sponsor</small></div>
+      <ul>
+        <li>Everything above</li>
+        <li>Featured website sponsor placement</li>
+        <li>Recognition across all home games</li>
+        <li>Recognition at end-of-season awards</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="btnrow">
+    <button class="btn gold campaign-switch"
+      type="button"
+      data-campaign="business">
+      Become a Business Sponsor
+    </button>
+  </div>
+</div>
+
+<!-- LEGACY -->
+<div class="pkg" aria-label="Legacy and major donor sponsorships">
+  <span class="tag">For Major Donors</span>
+  <h3>Legacy &amp; Major Sponsorships</h3>
+  <p class="small">
+    Make a lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.
+  </p>
+
+  <div style="display:grid; gap:12px; margin-top:12px;">
+    <div class="block" style="margin:0;">
+      <div class="price">$3,000 <small>Equipment Sponsor</small></div>
+      <ul>
+        <li>Recognized as major equipment supporter</li>
+        <li>Website recognition</li>
+        <li>Social media thank-you</li>
+        <li>End-of-season recognition</li>
+      </ul>
+    </div>
+
+    <div class="block" style="margin:0;">
+      <div class="price">$5,000 <small>Offseason Camp Sponsor</small></div>
+      <ul>
+        <li>Everything above</li>
+        <li>Featured as offseason camp supporter</li>
+        <li>Camp-related recognition when applicable</li>
+        <li>End-of-season recognition</li>
+      </ul>
+    </div>
+
+    <div class="block" style="margin:0;">
+      <div class="price">$10,000+ <small>Panther Legacy Builder</small></div>
+      <ul>
+        <li>Premier recognition on website</li>
+        <li>Recognized as major scholarship/program supporter</li>
+        <li>Awards ceremony recognition</li>
+        <li>Direct impact update and thank-you</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="btnrow">
+    <button class="btn campaign-switch"
+      type="button"
+      data-campaign="legacy">
+      Make a Legacy Gift
+    </button>
+  </div>
+</div>
+
+    </div> <!-- closes .packages -->
+
+    <!-- IMAGE CAROUSEL -->
 <section class="wrap carousel-wrap" aria-label="Program photos">
   <div class="card carousel">
     <button class="car-btn prev" type="button" aria-label="Previous photo">‹</button>
 
     <div class="car-viewport">
       <div class="car-track">
-        <figure class="car-slide">
-          <img src="LH-Water-tower.jpg" alt="Liberty Hill water tower" />
-        </figure>
+       
         <figure class="car-slide">
           <img src="action-shot-6.jpg" alt="Football action shot" />
         </figure>
-        <figure class="car-slide">
-          <img src="LH-cheer.jpg" alt="Liberty Hill cheer team" />
-           </figure>
         <figure class="car-slide">
           <img src="action-shot-4.jpg" alt="Liberty Hill cheer team" />
         </figure>
@@ -1019,164 +1351,60 @@
   </div>
 </section>
 
-
-  <!-- DONATE -->
-  <section id="donate" class="wrap">
-    <div class="section-title">
+  <!-- ONE SHARED FULL-WIDTH FORM -->
+  <div id="giving-form" class="booster-donate-full card">
+    <div class="booster-donate-header">
       <div>
-        <h2>Donate Now</h2>
-        <p>PayPal, Venmo, and Zelle — fast, secure, and easy. Add a note like: <strong>“Panthers Fundraiser”</strong>.</p>
+        <h3 id="campaignTitle">Join the Booster Club</h3>
+        <p id="campaignText">
+          Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.
+        </p>
+      </div>
+
+      <div class="campaign-toggle-row" aria-label="Donation campaign switcher">
+        <button class="btn primary campaign-switch campaign-switch-inline active"
+          type="button"
+          data-campaign="boosters">
+          Booster
+        </button>
+
+        <button class="btn gold campaign-switch campaign-switch-inline"
+          type="button"
+          data-campaign="business">
+          Business
+        </button>
+
+        <button class="btn campaign-switch campaign-switch-inline"
+          type="button"
+          data-campaign="legacy">
+          Legacy
+        </button>
       </div>
     </div>
 
-    <div class="donate-card">
-      <div class="donate-grid">
-        <div>
-          <h3 style="margin:0 0 10px;">Quick Donate</h3>
-          <p class="small" style="margin:0 0 14px;">
-            Put your donation link(s) here. If you don’t have PayPal.me yet, create one and paste it below.
-          </p>
-
-          <div class="pay-grid">
-            <div class="pay">
-              <strong>PayPal</strong>
-              <code id="paypalLink">https://paypal.me/YOURPAYPALME</code>
-              <div class="actions">
-                <a class="btn primary" id="paypalBtn" href="https://paypal.me/YOURPAYPALME" target="_blank" rel="noreferrer">Open PayPal</a>
-                <button class="btn" type="button" data-copy="#paypalLink">Copy Link</button>
-              </div>
-            </div>
-
-            <div class="pay">
-              <strong>Venmo</strong>
-              <code id="venmoId">@LibertyHillPanthers</code>
-              <div class="actions">
-                <button class="btn primary" type="button" data-copy="#venmoId">Copy Venmo</button>
-                <span class="small">Note: “Panthers Fundraiser”</span>
-              </div>
-            </div>
-
-            <div class="pay">
-              <strong>Zelle</strong>
-              <code id="zelleId">EMAIL_OR_PHONE_FOR_ZELLE</code>
-              <div class="actions">
-                <button class="btn primary" type="button" data-copy="#zelleId">Copy Zelle</button>
-                <span class="small">Note: “Panthers Fundraiser”</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="block" style="margin-top:14px;">
-            <h3>Suggested Giving</h3>
-            <p class="small" style="margin:0;">If you’re not sure what amount to choose:</p>
-            <ul>
-              <li><strong>$50</strong> helps cover awards and essentials</li>
-              <li><strong>$150</strong> supports cheer fees or equipment needs</li>
-              <li><strong>$300</strong> can sponsor a player or scholarship support</li>
-              <li><strong>$500+</strong> makes a major impact (equipment + scholarships)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <div class="block">
-            <h3>What Sponsors Get</h3>
-            <ul>
-              <li>Recognition on the fundraiser page</li>
-              <li>Social media shoutouts</li>
-              <li>Business banners displayed at <strong>4 home games</strong></li>
-              <li>Optional: announcements, tailgate signage, award recognition</li>
-            </ul>
-          </div>
-
-          <div class="block" style="margin-top:14px;">
-            <h3>Want to Sponsor a Specific Item?</h3>
-            <p class="small" style="margin:0;">
-              Equipment sponsors and major donors can target:
-              <strong>5-man sled</strong>, <strong>tackling sleds</strong>, <strong>scholarship fund</strong>, or <strong>offseason camp</strong>.
-            </p>
-            <div class="btnrow" style="margin-top:12px;">
-              <a class="btn gold" href="mailto:YOUR_EMAIL@EXAMPLE.COM?subject=Liberty%20Hill%20Panthers%20Sponsorship">Email to Sponsor</a>
-              <a class="btn" href="#packages">View Packages</a>
-            </div>
-            <p class="note" style="margin-top:10px;">
-              Replace <code>YOUR_EMAIL@EXAMPLE.COM</code> with the fundraiser coordinator email.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div class="booster-donate-frame">
+      <iframe
+        id="campaignFrame"
+        src="https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_24e14601a9bd&account_id=act_5c611f36ad14"
+        title="Donation Form"
+        loading="lazy"
+        allow="payment *">
+      </iframe>
     </div>
-  </section>
-
-  <!-- TIMELINE -->
-  <section id="timeline" class="wrap">
-    <div class="section-title">
-      <div>
-        <h2>Outreach Timeline &amp; Strategy (Start ASAP)</h2>
-        <p>Simple phases that work: launch to families first, then businesses, then major donors — and keep sponsors engaged weekly.</p>
-      </div>
-    </div>
-
-    <div class="timeline">
-      <div class="step">
-        <div class="num">1</div>
-        <h3>Week 1: Launch + Momentum</h3>
-        <p>Publish this page and drive immediate donations with parent networks.</p>
-        <ul>
-          <li>Send link to parent group chats + email lists</li>
-          <li>Post in Liberty Hill community Facebook groups</li>
-          <li>Ask each family to share once</li>
-          <li>Goal: early “wins” to build credibility</li>
-        </ul>
-      </div>
-
-      <div class="step">
-        <div class="num">2</div>
-        <h3>Week 2: Local Business Push</h3>
-        <p>Assign 10–15 businesses per parent/coordinator team.</p>
-        <ul>
-          <li>In-person visit + QR code to this page</li>
-          <li>Pitch: 4 home games of visibility + supporting local kids</li>
-          <li>Close banner + tailgate sponsors</li>
-        </ul>
-      </div>
-
-      <div class="step">
-        <div class="num">3</div>
-        <h3>Week 3: Major Donors &amp; Legacy Sponsors</h3>
-        <p>Personal outreach works best for $3k+ commitments.</p>
-        <ul>
-          <li>Offer equipment / camp / scholarship naming opportunities</li>
-          <li>Invite to a practice or game as a guest</li>
-          <li>Goal: 1–2 legacy sponsors = huge progress toward $15k+</li>
-        </ul>
-      </div>
-
-      <div class="step">
-        <div class="num">4</div>
-        <h3>In-Season: Keep Sponsors Proud</h3>
-        <p>Recognition drives repeat giving and bigger community energy.</p>
-        <ul>
-          <li>Weekly sponsor shoutouts + banner photos</li>
-          <li>Post “Impact updates” (scholarships funded, gear purchased)</li>
-          <li>End-of-season thank-you recap</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer class="wrap footer">
     <div class="kicker">
       <div>
         <strong>Liberty Hill Panthers</strong>
-        <div class="note">Replace placeholders (PayPal/Venmo/Zelle/email) and logo file paths, then publish.</div>
+        <div class="note">MENTAL TOUGHNESS. XTRA EFFORT!</div>
       </div>
       <a class="btn" href="#top">Back to top</a>
     </div>
     <p class="note" style="margin-top:10px;">
-      Tip: Put both of your logo images in <code>/assets</code> and name them <code>LH_Logo.png</code> and <code>LH_Texas_Logo.jpg</code>,
-      or update the <code>src</code> paths in the header.
+
     </p>
   </footer>
 
@@ -1315,8 +1543,66 @@
 })();
 </script>
 
+
+<!-- Donately Switch Campaigns -->
+<script>
+  const campaignMap = {
+    boosters: {
+      title: "Join the Booster Club",
+      text: "Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.",
+      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_24e14601a9bd&account_id=act_5c611f36ad14"
+    },
+    business: {
+      title: "Become a Business Sponsor",
+      text: "Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition.",
+      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_43ad6a917bb8&account_id=act_5c611f36ad14"
+    },
+    legacy: {
+      title: "Make a Legacy Gift",
+      text: "Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.",
+      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_46d779ef8c4b&account_id=act_5c611f36ad14"
+    }
+  };
+
+  const campaignButtons = document.querySelectorAll(".campaign-switch");
+  const campaignTitle = document.getElementById("campaignTitle");
+  const campaignText = document.getElementById("campaignText");
+  const campaignFrame = document.getElementById("campaignFrame");
+
+  function setCampaign(key, scrollToForm = true) {
+    const config = campaignMap[key];
+    if (!config) return;
+
+    campaignButtons.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.campaign === key);
+    });
+
+    campaignTitle.textContent = config.title;
+    campaignText.textContent = config.text;
+    campaignFrame.src = config.iframe;
+
+    if (scrollToForm) {
+      document.getElementById("giving-form").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }
+
+  campaignButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setCampaign(btn.dataset.campaign, true);
+    });
+  });
+
+  window.addEventListener("load", () => {
+    setCampaign("boosters", false);
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
