@@ -152,6 +152,7 @@
       --radius: 18px;
       --radius2: 26px;
       --max: 1120px;
+      --accent:#8b5cf6;
     }
 
     *{box-sizing:border-box}
@@ -167,6 +168,23 @@
         var(--bg);
       line-height:1.55;
     }
+
+
+
+/* Legacy buttons get gold stars */
+button[data-campaign="legacy"]::before,
+button[data-campaign="legacy"]::after{
+  content: "★";
+  color: var(--gold);
+  margin: 0 6px;
+  font-size: 14px;
+}
+
+/* Slight emphasis for legacy buttons */
+button[data-campaign="legacy"]{
+  border-color: rgba(246,199,68,.5);
+  background: rgba(246,199,68,.08);
+}
 
 /* HERO IMAGE PANEL */
 .hero-image{
@@ -596,6 +614,70 @@
   display:block;
 }
 
+/* =========================
+   SPONSOR INTRO
+========================= */
+.sponsor-intro{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.sponsor-intro-card{
+  padding: 22px;
+  border-radius: 26px;
+  background:
+    radial-gradient(700px 260px at 15% 20%, rgba(246,199,68,.14), transparent 60%),
+    radial-gradient(700px 260px at 85% 30%, rgba(139,92,246,.16), transparent 60%),
+    rgba(255,255,255,.03);
+}
+
+.sponsor-intro-card{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap:18px;
+  align-items:start;
+}
+
+.sponsor-intro-copy h2{
+  margin:10px 0 10px;
+  font-size: clamp(24px, 2.6vw, 38px);
+  letter-spacing:-.02em;
+}
+
+.sponsor-intro-copy .small{
+  margin:0 0 10px;
+  color:var(--muted);
+  max-width:66ch;
+}
+
+.sponsor-intro-points{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+
+.pkg-featured{
+  background:
+    radial-gradient(700px 240px at 20% 20%, rgba(246,199,68,.18), transparent 60%),
+    radial-gradient(700px 240px at 85% 15%, rgba(139,92,246,.18), transparent 60%),
+    rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.18);
+}
+
+.sponsor-contact-block{
+  background: rgba(255,255,255,.04);
+}
+
+@media (max-width: 920px){
+  .sponsor-intro-card{
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-intro-points{
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Subtle overlay to match theme */
 .goal-photo::after{
   content:"";
@@ -831,6 +913,65 @@ SHIRT CARD
 .pkg > div[style*="display:grid"]{
   flex:1 1 auto;
 }
+
+.pkg-featured .tag{
+  background: rgba(246,199,68,.12);
+  border-color: rgba(246,199,68,.4);
+  color: var(--gold);
+}
+
+/* Trophy icons around Legacy title */
+.pkg[aria-label="Legacy and major donor sponsorships"] h3{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.pkg[aria-label="Legacy and major donor sponsorships"] h3::before,
+.pkg[aria-label="Legacy and major donor sponsorships"] h3::after{
+  content:"🏆";
+  font-size:18px;
+}
+
+/* GOLD FEATURED OUTLINE FOR BUSINESS SPONSOR */
+.pkg-featured{
+  position: relative;
+  border: 1px solid rgba(246,199,68,.6);
+
+  box-shadow:
+    0 0 0 1px rgba(246,199,68,.25),
+    0 12px 30px rgba(246,199,68,.18),
+    inset 0 0 40px rgba(246,199,68,.06);
+}
+
+/* Soft glowing edge effect */
+.pkg-featured::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    135deg,
+    rgba(246,199,68,.6),
+    rgba(139,92,246,.4),
+    rgba(246,199,68,.6)
+  );
+
+  opacity:.25;
+  filter: blur(12px);
+  z-index:-1;
+}
+
+/* Optional: subtle hover lift */
+.pkg-featured:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(246,199,68,.35),
+    0 18px 40px rgba(246,199,68,.25),
+    inset 0 0 50px rgba(246,199,68,.08);
+}
+
 /* =========================
    IMAGE CAROUSEL
 ========================= */
@@ -1153,6 +1294,43 @@ SHIRT CARD
   </div>
 </section>
 
+<!-- SPONSOR INTRO -->
+<section class="wrap sponsor-intro" aria-label="Business sponsorship introduction">
+  <div class="card sponsor-intro-card">
+    <div class="sponsor-intro-copy">
+      <span class="tag">Local Business Sponsorships</span>
+      <h2>Put Your Business Behind Liberty Hill Youth Football &amp; Cheer</h2>
+      <p class="small">
+        Sponsoring LHYFC is more than a donation. It is a visible investment in local families,
+        youth development, and community pride. Your support helps fund scholarships, equipment,
+        cheer fees, and athlete recognition throughout the season.
+      </p>
+      <p class="small">
+        In return, your business receives meaningful exposure through our website, home games,
+        social media, and program recognition opportunities.
+      </p>
+    </div>
+
+    <div class="sponsor-intro-points">
+      <div class="mini">
+        <strong>Community Visibility</strong>
+        <span>Recognition tied directly to local youth sports</span>
+      </div>
+      <div class="mini">
+        <strong>Game Day Exposure</strong>
+        <span>Home game banner and public recognition opportunities</span>
+      </div>
+      <div class="mini">
+        <strong>Digital Promotion</strong>
+        <span>Website placement and social media sponsor highlights</span>
+      </div>
+      <div class="mini">
+        <strong>Flexible Support</strong>
+        <span>Sponsor a tier or contact us for a custom opportunity</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- PACKAGES -->
 <section id="packages" class="wrap">
@@ -1212,50 +1390,70 @@ SHIRT CARD
 </div>
 
  <!-- BUSINESS -->
-<div id="business" class="pkg" aria-label="Local business sponsorships">
-  <span class="tag">For Local Businesses</span>
+<div id="business" class="pkg pkg-featured" aria-label="Local business sponsorships">
+  <span class="tag">Most Popular for Local Businesses</span>
   <h3>Community Business Sponsors</h3>
   <p class="small">
-    Support Liberty Hill youth football and cheer while gaining meaningful local visibility and community recognition.
+    Support Liberty Hill youth football and cheer while building strong local visibility for your business.
+    These sponsorships help fund scholarships, equipment, cheer support, and athlete recognition.
   </p>
 
   <div style="display:grid; gap:12px; margin-top:12px;">
     <div class="block" style="margin:0;">
-      <div class="price">$500 <small>Banner Sponsor</small></div>
+      <div class="price">$250+ <small>First Down Sponsor</small></div>
       <ul>
-        <li>Business name/logo on sponsor page</li>
+        <li>Business name or logo on sponsor page</li>
+        <li>Group social media thank-you</li>
+        <li>Recognition as an official 2026 community sponsor</li>
+      </ul>
+    </div>
+
+    <div class="block" style="margin:0;">
+      <div class="price">$500+ <small>Touchdown Sponsor</small></div>
+      <ul>
+        <li>Everything in First Down Sponsor</li>
         <li>Banner displayed at home games</li>
-        <li>Included in group social media thank-you</li>
-      </ul>
-    </div>
-
-    <div class="block" style="margin:0;">
-      <div class="price">$1,000 <small>Game Day Sponsor</small></div>
-      <ul>
-        <li>Everything above</li>
-        <li>Dedicated game-day social spotlight</li>
+        <li>Dedicated sponsor spotlight on social media</li>
         <li>Digital game-day recognition</li>
-        <li>Announcer thank-you at one home game</li>
       </ul>
     </div>
 
     <div class="block" style="margin:0;">
-      <div class="price">$2,000 <small>Community Champion Sponsor</small></div>
+      <div class="price">$1,000+ <small>Community Champion Sponsor</small></div>
       <ul>
-        <li>Everything above</li>
-        <li>Featured website sponsor placement</li>
+        <li>Everything in Touchdown Sponsor</li>
+        <li>Featured sponsor placement on website</li>
         <li>Recognition across all home games</li>
+        <li>Announcer thank-you during one home game</li>
         <li>Recognition at end-of-season awards</li>
+        <li>Vendor booth (10x10) during camp and all home games</li>
       </ul>
     </div>
   </div>
 
-  <div class="btnrow">
-    <button class="btn gold campaign-switch"
-      type="button"
-      data-campaign="business">
-      Become a Business Sponsor
-    </button>
+  <div class="block sponsor-contact-block" style="margin-top:14px;">
+    <h3>Need a Custom Sponsorship?</h3>
+    <p class="small" style="margin:0;">
+      We can work with local businesses on custom sponsorships for equipment, scholarships,
+      camp support, team needs, and other high-impact opportunities.
+    </p>
+
+    <div class="btnrow" style="margin-top:12px;">
+      <button class="btn gold campaign-switch"
+        type="button"
+        data-campaign="business">
+        Become a Business Sponsor
+      </button>
+
+      <a class="btn"
+         href="mailto:president@lhyfc.org?subject=LHYFC%20Business%20Sponsorship&body=Hi%2C%0A%0AI%E2%80%99m%20interested%20in%20becoming%20a%20business%20sponsor%20for%20LHYFC.%20Please%20send%20more%20information.%0A%0ABusiness%20Name%3A%0AContact%20Name%3A%0APhone%3A%0AEmail%3A%0A%0AThank%20you.">
+        Email Us
+      </a>
+    </div>
+
+    <p class="note" style="margin-top:10px;">
+      Contact: <strong>president@lhyfc.org</strong>
+    </p>
   </div>
 </div>
 
