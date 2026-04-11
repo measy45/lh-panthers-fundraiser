@@ -582,6 +582,37 @@ button[data-campaign="Major"]{
       transform: translateX(-50%) translateY(-4px);
     }
 
+    .booster-split{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.booster-image{
+  background: url("D1_Day.jpg") center/cover no-repeat;
+  border-radius: 16px;
+  min-height: 500px;
+}
+
+.booster-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* mobile */
+@media (max-width: 768px){
+  .booster-split{
+    grid-template-columns: 1fr;
+  }
+
+  .booster-image{
+    min-height: 300px;
+  }
+}
+
+
     /* GOAL + CHEER PHOTO SPLIT */
 .goal-split{
   display:grid;
@@ -626,28 +657,72 @@ button[data-campaign="Major"]{
   padding: 22px;
   border-radius: 26px;
   background:
-    radial-gradient(700px 260px at 15% 20%, rgba(246,199,68,.14), transparent 60%),
-    radial-gradient(700px 260px at 85% 30%, rgba(139,92,246,.16), transparent 60%),
+    radial-gradient(700px 260px at 15% 20%, rgba(246,199,68,.10), transparent 60%),
+    radial-gradient(700px 260px at 85% 30%, rgba(139,92,246,.12), transparent 60%),
     rgba(255,255,255,.03);
 }
 
-.sponsor-intro-card{
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap:18px;
-  align-items:start;
+.sponsor-intro-grid{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 28px;
+  align-items: start;
 }
 
 .sponsor-intro-copy h2{
-  margin:10px 0 10px;
-  font-size: clamp(24px, 2.6vw, 38px);
-  letter-spacing:-.02em;
+  margin: 10px 0 14px;
+  font-size: clamp(28px, 4vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  max-width: 10ch;
 }
 
 .sponsor-intro-copy .small{
-  margin:0 0 10px;
-  color:var(--muted);
-  max-width:66ch;
+  margin: 0 0 12px;
+  color: var(--muted);
+  max-width: 58ch;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.sponsor-intro-right{
+  display: grid;
+  gap: 18px;
+}
+
+.sponsor-intro-image{
+  width: 100%;
+  height: 400px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255,255,255,.10);
+  background: #0b0f17;
+}
+
+.sponsor-intro-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* shows full image */
+}
+
+.sponsor-intro-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(7,10,15,.72), rgba(7,10,15,.10));
+}
+
+.sponsor-image-overlay{
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:14px;
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  line-height:1.3;
+  z-index:2;
 }
 
 .sponsor-intro-points{
@@ -656,21 +731,39 @@ button[data-campaign="Major"]{
   gap:10px;
 }
 
-.pkg-featured{
-  background:
-    radial-gradient(700px 240px at 20% 20%, rgba(246,199,68,.18), transparent 60%),
-    radial-gradient(700px 240px at 85% 15%, rgba(139,92,246,.18), transparent 60%),
-    rgba(255,255,255,.04);
-  border-color: rgba(255,255,255,.18);
+.sponsor-intro-points .mini{
+  min-height: 108px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
 }
 
-.sponsor-contact-block{
-  background: rgba(255,255,255,.04);
+.sponsor-intro-points .mini strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:16px;
+}
+
+.sponsor-intro-points .mini span{
+  display:block;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
 }
 
 @media (max-width: 920px){
-  .sponsor-intro-card{
+  .sponsor-intro-grid{
     grid-template-columns: 1fr;
+  }
+
+  .sponsor-intro-copy h2{
+    max-width:none;
+    font-size: clamp(30px, 7vw, 46px);
+  }
+
+  .sponsor-intro-image{
+    min-height: 260px;
   }
 
   .sponsor-intro-points{
@@ -1069,7 +1162,102 @@ SHIRT CARD
   .car-btn{ width: 40px; height: 40px; font-size: 26px; }
 }
 
+.sponsor-intro-card{
+  padding: 22px;
+  border-radius: 26px;
+  background:
+    radial-gradient(700px 260px at 15% 20%, rgba(246,199,68,.10), transparent 60%),
+    radial-gradient(700px 260px at 85% 30%, rgba(139,92,246,.12), transparent 60%),
+    rgba(255,255,255,.03);
+}
 
+
+.sponsor-intro-copy h2{
+  margin: 12px 0 14px;
+  font-size: clamp(34px, 4vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  max-width: 11ch;
+}
+
+.sponsor-intro-copy .small{
+  margin: 0 0 14px;
+  color: var(--muted);
+  max-width: 58ch;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.sponsor-intro-image::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(7,10,15,.72),
+    rgba(7,10,15,.10)
+  );
+}
+
+.sponsor-image-overlay{
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  right: 18px;
+  z-index: 2;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.sponsor-intro-points{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.sponsor-intro-points .mini{
+  min-height: 108px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
+}
+
+.sponsor-intro-points .mini strong{
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.sponsor-intro-points .mini span{
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 960px){
+  .sponsor-intro-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-intro-copy h2{
+    max-width: none;
+    font-size: clamp(30px, 7vw, 48px);
+  }
+
+  .sponsor-intro-image{
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 640px){
+  .sponsor-intro-points{
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -1297,37 +1485,51 @@ SHIRT CARD
 <!-- SPONSOR INTRO -->
 <section class="wrap sponsor-intro" aria-label="Business sponsorship introduction">
   <div class="card sponsor-intro-card">
-    <div class="sponsor-intro-copy">
-      <span class="tag">Local Business Sponsorships</span>
-      <h2>Put Your Business Behind Liberty Hill Youth Football &amp; Cheer</h2>
-      <p class="small">
-        Sponsoring LHYFC is more than a donation. It is a visible investment in local families,
-        youth development, and community pride. Your support helps fund scholarships, equipment,
-        cheer fees, and athlete recognition throughout the season.
-      </p>
-      <p class="small">
-        In return, your business receives meaningful exposure through our website, home games,
-        social media, and program recognition opportunities.
-      </p>
-    </div>
+    <div class="sponsor-intro-grid">
 
-    <div class="sponsor-intro-points">
-      <div class="mini">
-        <strong>Community Visibility</strong>
-        <span>Recognition tied directly to local youth sports</span>
+      <div class="sponsor-intro-copy">
+        <span class="tag">Local Business Sponsorships</span>
+        <br>
+        <h2>Put Your Business Behind LHYFC</h2>
+        <p class="small">
+          <br>
+          <br>
+          Sponsoring LHYFC is more than a donation. It is a visible investment in local families,
+          youth development, and community pride. Your support helps fund scholarships,
+          equipment, cheer fees, and athlete recognition throughout the season.
+        </p>
+        <p class="small">
+          In return, your business receives meaningful exposure through our website,
+          home games, social media, and program recognition opportunities.
+        </p>
       </div>
-      <div class="mini">
-        <strong>Game Day Exposure</strong>
-        <span>Home game banner and public recognition opportunities</span>
+
+      <div class="sponsor-intro-right">
+        <div class="sponsor-intro-image">
+  <img src="D1_Day.jpg" alt="LHYFC player" />
+  <div class="sponsor-image-overlay">Proudly Supporting Our Panthers</div>
+</div>
+
+        <div class="sponsor-intro-points">
+          <div class="mini">
+            <strong>Community Visibility</strong>
+            <span>Recognition tied directly to local youth sports</span>
+          </div>
+          <div class="mini">
+            <strong>Game Day Exposure</strong>
+            <span>Home game banner and public recognition opportunities</span>
+          </div>
+          <div class="mini">
+            <strong>Digital Promotion</strong>
+            <span>Website placement and social media sponsor highlights</span>
+          </div>
+          <div class="mini">
+            <strong>Flexible Support</strong>
+            <span>Sponsor a tier or contact us for a custom opportunity</span>
+          </div>
+        </div>
       </div>
-      <div class="mini">
-        <strong>Digital Promotion</strong>
-        <span>Website placement and social media sponsor highlights</span>
-      </div>
-      <div class="mini">
-        <strong>Flexible Support</strong>
-        <span>Sponsor a tier or contact us for a custom opportunity</span>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1748,17 +1950,17 @@ SHIRT CARD
     boosters: {
       title: "Join the Booster Club",
       text: "Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.",
-      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_24e14601a9bd&account_id=act_5c611f36ad14"
+      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_24e14601a9bd&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km" 
     },
     business: {
       title: "Become a Business Sponsor",
       text: "Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition.",
-      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_43ad6a917bb8&account_id=act_5c611f36ad14"
+      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_43ad6a917bb8&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km"
     },
     Major: {
       title: "Make a Major Gift",
       text: "Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.",
-      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_46d779ef8c4b&account_id=act_5c611f36ad14"
+      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_46d779ef8c4b&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km"
     }
   };
 
