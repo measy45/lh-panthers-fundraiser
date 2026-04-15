@@ -171,17 +171,17 @@
 
 
 
-/* Major buttons get gold stars */
-button[data-campaign="Major"]::before,
-button[data-campaign="Major"]::after{
+/* Elite buttons get gold stars */
+button[data-campaign="Elite"]::before,
+button[data-campaign="Elite"]::after{
   content: "★";
   color: var(--gold);
   margin: 0 6px;
   font-size: 14px;
 }
 
-/* Slight emphasis for Major buttons */
-button[data-campaign="Major"]{
+/* Slight emphasis for Elite buttons */
+button[data-campaign="Elite"]{
   border-color: rgba(246,199,68,.5);
   background: rgba(246,199,68,.08);
 }
@@ -1013,15 +1013,15 @@ SHIRT CARD
   color: var(--gold);
 }
 
-/* Trophy icons around Major title */
-.pkg[aria-label="Major donor sponsorships"] h3{
+/* Trophy icons around Elite title */
+.pkg[aria-label="Elite donor sponsorships"] h3{
   display:inline-flex;
   align-items:center;
   gap:8px;
 }
 
-.pkg[aria-label="Major donor sponsorships"] h3::before,
-.pkg[aria-label="Major donor sponsorships"] h3::after{
+.pkg[aria-label="Elite donor sponsorships"] h3::before,
+.pkg[aria-label="Elite donor sponsorships"] h3::after{
   content:"🏆";
   font-size:18px;
 }
@@ -1439,7 +1439,7 @@ SHIRT CARD
   <div class="block" style="margin-top:14px;">
     <h3>Want to Sponsor a Specific Item?</h3>
     <p class="small" style="margin:0;">
-      Equipment sponsors and major donors can target:
+      Equipment sponsors and Elite donors can target:
       <strong>5-man sled</strong>, <strong>tackling sleds</strong>, <strong>scholarship fund</strong>, or <strong>offseason camp</strong>.
     </p>
 
@@ -1539,7 +1539,7 @@ SHIRT CARD
   <div class="section-title">
     <div>
       <h2>Sponsorship &amp; Donation Packages</h2>
-      <p>Designed for family/friends, local businesses, and major donors — with real value and visible recognition.</p>
+      <p>Designed for family/friends, local businesses, and Elite donors — with real value and visible recognition.</p>
     </div>
     <a class="btn primary" href="#giving-form">Donate / Sponsor</a>
   </div>
@@ -1659,19 +1659,19 @@ SHIRT CARD
   </div>
 </div>
 
-<!-- MAJOR -->
-<div class="pkg" aria-label="Major donor sponsorships">
-  <span class="tag">For Major Donors</span>
-  <h3>Major Sponsorships</h3>
+<!-- Elite -->
+<div class="pkg" aria-label="Elite donor sponsorships">
+  <span class="tag">For Elite Donors</span>
+  <h3>Elite Sponsorships</h3>
   <p class="small">
     Make a lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.
   </p>
 
   <div style="display:grid; gap:12px; margin-top:12px;">
     <div class="block" style="margin:0;">
-      <div class="price">$3,000 <small>Equipment Sponsor</small></div>
+      <div class="price">$3,000 <small>Elite Equipment Sponsor</small></div>
       <ul>
-        <li>Recognized as major equipment supporter</li>
+        <li>Recognized as Elite equipment supporter</li>
         <li>Website recognition</li>
         <li>Social media thank-you</li>
         <li>End-of-season recognition</li>
@@ -1679,20 +1679,20 @@ SHIRT CARD
     </div>
 
     <div class="block" style="margin:0;">
-      <div class="price">$5,000 <small>Offseason Camp Sponsor</small></div>
+      <div class="price">$5,000 <small>Elite Offseason Sponsor</small></div>
       <ul>
         <li>Everything above</li>
-        <li>Featured as offseason camp supporter</li>
+        <li>Featured as Elite Offseason Sponsor</li>
         <li>Camp-related recognition when applicable</li>
         <li>End-of-season recognition</li>
       </ul>
     </div>
 
     <div class="block" style="margin:0;">
-      <div class="price">$10,000+ <small>Panther Major Builder</small></div>
+      <div class="price">$10,000+ <small>Panther Elite Program Builder</small></div>
       <ul>
         <li>Premier recognition on website</li>
-        <li>Recognized as major scholarship/program supporter</li>
+        <li>Recognized as Elite Program Builder</li>
         <li>Awards ceremony recognition</li>
         <li>Direct impact update and thank-you</li>
       </ul>
@@ -1702,8 +1702,8 @@ SHIRT CARD
   <div class="btnrow">
     <button class="btn campaign-switch"
       type="button"
-      data-campaign="Major">
-      Make a Major Gift
+      data-campaign="Elite">
+      Make an Elite Gift
     </button>
   </div>
 </div>
@@ -1778,8 +1778,8 @@ SHIRT CARD
 
         <button class="btn campaign-switch campaign-switch-inline"
           type="button"
-          data-campaign="Major">
-          Major
+          data-campaign="Elite">
+          Elite
         </button>
       </div>
     </div>
@@ -1959,9 +1959,9 @@ SHIRT CARD
       text: "BUSINESSES - Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition. ***FOR DONATIONS LARGER THAN $500, PLEASE CONSIDER PAYING VIA CHECK TO AVOID LARGE FEES.*** Contact president@lhyfc.org",
       iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_43ad6a917bb8&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km"
     },
-    Major: {
-      title: "Make a Major Gift",
-      text: "MAJOR DONORS - Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes. ***FOR DONATIONS LARGER THAN $500, PLEASE CONSIDER PAYING VIA CHECK TO AVOID LARGE FEES.*** Contact president@lhyfc.org",
+    Elite: {
+      title: "Make an Elite Gift",
+      text: "ELITE DONORS - Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes. ***FOR DONATIONS LARGER THAN $500, PLEASE CONSIDER PAYING VIA CHECK TO AVOID LARGE FEES.*** Contact president@lhyfc.org",
       iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_46d779ef8c4b&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km"
     }
   };
