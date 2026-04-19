@@ -1752,8 +1752,8 @@ SHIRT CARD
   </div>
 </section>
 
-  <!-- ONE SHARED FULL-WIDTH FORM -->
- <div id="giving-form" class="booster-donate-full card">
+<!-- ONE SHARED FULL-WIDTH FORM -->
+<div id="giving-form" class="booster-donate-full card">
   <div class="booster-donate-header">
     <div>
       <h3 id="campaignTitle">Make an Elite Gift</h3>
@@ -1765,7 +1765,15 @@ SHIRT CARD
     </div>
 
     <div class="campaign-toggle-row" aria-label="Donation campaign switcher">
-      <button class="btn primary campaign-switch campaign-switch-inline active" type="button" data-campaign="Elite">
+      <button class="btn primary campaign-switch campaign-switch-inline" type="button" data-campaign="boosters">
+        Booster
+      </button>
+
+      <button class="btn gold campaign-switch campaign-switch-inline" type="button" data-campaign="business">
+        Business
+      </button>
+
+      <button class="btn campaign-switch campaign-switch-inline" type="button" data-campaign="Elite">
         Elite
       </button>
     </div>
@@ -1775,7 +1783,7 @@ SHIRT CARD
     <div id="dntly-donation-form"></div>
   </div>
 </div>
-
+  
 <script src="https://cdn.donately.com/core/6.0/donately.min.js" async="async"></script>
 <script>
   dntlyReady("Donately", function() {
@@ -1825,60 +1833,106 @@ function dntlyReady(name, callback) {
 const campaignConfigs = {
   boosters: {
     title: "Join the Booster Club",
-    text: `FRIENDS & FAMILY – Support scholarships, equipment, cheer fees, and athlete development.`,
-    form: "frm_24e14601a9bd"
+    text: `FRIENDS & FAMILY – Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.
+For donations larger than $500, please consider paying via check to avoid large fees.
+Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
+    options: {
+      "donately-id": "act_5c611f36ad14",
+      "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
+      "donately-form-id": "frm_24e14601a9bd",
+      "donately-i18n-locale": "en_US",
+      "donately-theme": "clean"
+    }
   },
+
   business: {
     title: "Become a Business Sponsor",
-    text: `Support Liberty Hill youth football and cheer while gaining community visibility.`,
-    form: "frm_43ad6a917bb8"
+    text: `BUSINESSES – Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition.
+For donations larger than $500, please consider paying via check to avoid large fees.
+Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
+    options: {
+      "donately-id": "act_5c611f36ad14",
+      "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
+      "donately-form-id": "frm_43ad6a917bb8",
+      "donately-i18n-locale": "en_US",
+      "donately-theme": "clean"
+    }
   },
+
   Elite: {
     title: "Make an Elite Gift",
-    text: `ELITE DONORS – Create lasting impact through scholarships, equipment, camps, and long-term investment.`,
-    form: "frm_46d779ef8c4b"
+    text: `ELITE DONORS – Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.
+For donations larger than $500, please consider paying via check to avoid large fees.
+Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
+    options: {
+      "donately-id": "act_5c611f36ad14",
+      "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
+      "donately-amount": "{\"placeholder\":3000}",
+      "donately-campaign-id": "cmp_541d2cb8d432",
+      "donately-confirmation-config": "{\"display_social_icons\":true}",
+      "donately-currency": "USD",
+      "donately-custom-theme": "{\"-PrimaryColor\":\"#940fd2\"}",
+      "donately-donor-pays-fees": "{\"cc\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"ach\":{\"processor_percent\":0.008,\"processor_fixed\":0,\"processor_cap\":5,\"dntly_percent\":0.04,\"complex_calc\":true},\"paypal\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"wallet\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true}}",
+      "donately-recurring-frequency": "[\"false\"]",
+      "donately-form-id": "frm_46d779ef8c4b",
+      "donately-i18n-locale": "en_US",
+      "donately-payment-options": "cc,ach,paypal,wallet",
+      "donately-presets": "1000,3000,5000,10000",
+      "donately-form-navigation": "{\"steps\":[[\"presets\",\"amount\",\"donorpaysfees\",\"recurringgroup\"],[\"namegroup\",\"email\"],[\"paymentmethods\",\"submit\"]]}",
+      "donately-theme": "clean"
+    }
   }
 };
 
-function loadDonatelyForm(key) {
+function updateCampaignUI(key) {
   const cfg = campaignConfigs[key];
   if (!cfg) return;
 
   document.getElementById("campaignTitle").textContent = cfg.title;
   document.getElementById("campaignText").innerHTML = cfg.text;
 
-  document.querySelectorAll(".campaign-switch").forEach(btn => {
+  document.querySelectorAll(".campaign-switch").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.campaign === key);
   });
+}
+
+function loadDonatelyForm(key) {
+  const cfg = campaignConfigs[key];
+  if (!cfg) return;
+
+  updateCampaignUI(key);
 
   const container = document.getElementById("dntly-donation-form");
+  if (!container) return;
+
   container.innerHTML = "";
 
-  const innerId = "dntly-inner-" + Date.now();
+  const freshId = "dntly-form-inner-" + Date.now();
   const inner = document.createElement("div");
-  inner.id = innerId;
+  inner.id = freshId;
   container.appendChild(inner);
 
   dntlyReady("Donately", function () {
     Donately.init({
-      selector: "#" + innerId,
-      options: {
-        "donately-id": "act_5c611f36ad14",
-        "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
-        "donately-form-id": cfg.form,
-        "donately-theme": "clean"
+      selector: "#" + freshId,
+      options: cfg.options,
+      afterFormLoad: function () {},
+      afterNavigateHook: function (stepNumber) {},
+      onSuccess: function (donation) {},
+      onError: function (error) {
+        console.error("Donately error:", error);
       }
     });
   });
 }
 
-document.querySelectorAll(".campaign-switch").forEach(btn => {
-  btn.addEventListener("click", () => {
+document.querySelectorAll(".campaign-switch").forEach((btn) => {
+  btn.addEventListener("click", function () {
     loadDonatelyForm(btn.dataset.campaign);
   });
 });
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", function () {
   loadDonatelyForm("Elite");
 });
 </script>
