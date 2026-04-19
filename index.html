@@ -1814,31 +1814,76 @@ SHIRT CARD
 </script>
 
 <!-- Donately Switch Campaigns -->
-<!-- Donately Switch Campaigns -->
 <script>
-  const campaignMap = {
-    ...
-  };
+function dntlyReady(name, callback) {
+  window.setTimeout(function () {
+    if (window[name]) callback(window[name]);
+    else dntlyReady(name, callback);
+  }, 10);
+}
 
-  const campaignButtons = document.querySelectorAll(".campaign-switch");
-  const campaignTitle = document.getElementById("campaignTitle");
-  const campaignText = document.getElementById("campaignText");
-  const campaignFrameMount = document.getElementById("campaignFrameMount");
-
-  let currentCampaign = null;
-
-  function renderCampaignFrame(key) {
-    ...
-    const iframe = document.createElement("iframe");
-    ...
+const campaignConfigs = {
+  boosters: {
+    title: "Join the Booster Club",
+    text: `FRIENDS & FAMILY – Support scholarships, equipment, cheer fees, and athlete development.`,
+    form: "frm_24e14601a9bd"
+  },
+  business: {
+    title: "Become a Business Sponsor",
+    text: `Support Liberty Hill youth football and cheer while gaining community visibility.`,
+    form: "frm_43ad6a917bb8"
+  },
+  Elite: {
+    title: "Make an Elite Gift",
+    text: `ELITE DONORS – Create lasting impact through scholarships, equipment, camps, and long-term investment.`,
+    form: "frm_46d779ef8c4b"
   }
+};
 
-  function setCampaign(key, scrollToForm = true) {
-    ...
-  }
+function loadDonatelyForm(key) {
+  const cfg = campaignConfigs[key];
+  if (!cfg) return;
 
-  ...
+  document.getElementById("campaignTitle").textContent = cfg.title;
+  document.getElementById("campaignText").innerHTML = cfg.text;
+
+  document.querySelectorAll(".campaign-switch").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.campaign === key);
+  });
+
+  const container = document.getElementById("dntly-donation-form");
+  container.innerHTML = "";
+
+  const innerId = "dntly-inner-" + Date.now();
+  const inner = document.createElement("div");
+  inner.id = innerId;
+  container.appendChild(inner);
+
+  dntlyReady("Donately", function () {
+    Donately.init({
+      selector: "#" + innerId,
+      options: {
+        "donately-id": "act_5c611f36ad14",
+        "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
+        "donately-form-id": cfg.form,
+        "donately-theme": "clean"
+      }
+    });
+  });
+}
+
+document.querySelectorAll(".campaign-switch").forEach(btn => {
+  btn.addEventListener("click", () => {
+    loadDonatelyForm(btn.dataset.campaign);
+  });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadDonatelyForm("Elite");
+});
 </script>
+  
+<script src="https://cdn.donately.com/core/6.0/donately.min.js" async></script>
   
 </body>
 </html>
