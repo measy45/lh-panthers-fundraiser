@@ -1793,8 +1793,6 @@ SHIRT CARD
   </div>
 </div>
   
-</section>
-
   <!-- FOOTER -->
   <footer class="wrap footer">
     <div class="kicker">
@@ -1810,52 +1808,6 @@ SHIRT CARD
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite">Copied!</div>
-
-  <script>
-    // Copy-to-clipboard for Venmo/Zelle/PayPal strings
-    const toast = document.getElementById('toast');
-
-    function showToast(msg){
-      toast.textContent = msg || 'Copied!';
-      toast.classList.add('show');
-      window.clearTimeout(showToast._t);
-      showToast._t = window.setTimeout(()=>toast.classList.remove('show'), 1400);
-    }
-
-    async function copyText(text){
-      try{
-        await navigator.clipboard.writeText(text);
-        showToast('Copied to clipboard');
-      }catch(e){
-        // Fallback
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-        showToast('Copied');
-      }
-    }
-
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-copy]');
-      if(!btn) return;
-      const sel = btn.getAttribute('data-copy');
-      const el = document.querySelector(sel);
-      if(!el) return;
-      copyText(el.textContent.trim());
-    });
-
-    // Keep PayPal button in sync if user edits paypalLink text
-    const paypalLinkEl = document.getElementById('paypalLink');
-    const paypalBtn = document.getElementById('paypalBtn');
-    const obs = new MutationObserver(() => {
-      const href = paypalLinkEl.textContent.trim();
-      paypalBtn.setAttribute('href', href);
-    });
-    obs.observe(paypalLinkEl, { childList:true, characterData:true, subtree:true });
-  </script>
 
 <script>
 (() => {
