@@ -1795,33 +1795,53 @@ function dntlyReady(name, callback) {
 }
 
 const campaignConfigs = {
-  boosters: {
-    title: "Join the Booster Club",
-    text: `FRIENDS & FAMILY – Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.
+ boosters: {
+  title: "Join the Booster Club",
+  text: `FRIENDS & FAMILY – Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.
 For donations larger than $500, please consider paying via check to avoid large fees.
 Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
-    options: {
-      "donately-id": "act_5c611f36ad14",
-      "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
-      "donately-form-id": "frm_24e14601a9bd",
-      "donately-i18n-locale": "en_US",
-      "donately-theme": "clean"
-    }
-  },
+  options: {
+    "donately-id": "act_5c611f36ad14",
+    "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
+    "donately-amount": "{\"placeholder\":20}",
+    "donately-campaign-id": "cmp_6276e5eaf866",
+    "donately-confirmation-config": "{\"display_social_icons\":true}",
+    "donately-currency": "USD",
+    "donately-custom-theme": "{\"-PrimaryColor\":\"#940fd2\"}",
+    "donately-donor-pays-fees": "{\"cc\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"paypal\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"wallet\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true}}",
+    "donately-recurring-frequency": "[\"false\"]",
+    "donately-form-id": "frm_24e14601a9bd",
+    "donately-i18n-locale": "en_US",
+    "donately-payment-options": "cc,paypal,wallet",
+    "donately-presets": "20,50,100,500",
+    "donately-form-navigation": "{\"steps\":[[\"presets\",\"amount\",\"donorpaysfees\",\"recurringgroup\"],[\"namegroup\",\"email\"],[\"paymentmethods\",\"submit\"]]}",
+    "donately-theme": "clean"
+  }
+},
 
   business: {
-    title: "Become a Business Sponsor",
-    text: `BUSINESSES – Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition.
+  title: "Become a Business Sponsor",
+  text: `BUSINESSES – Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition.
 For donations larger than $500, please consider paying via check to avoid large fees.
 Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
-    options: {
-      "donately-id": "act_5c611f36ad14",
-      "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
-      "donately-form-id": "frm_43ad6a917bb8",
-      "donately-i18n-locale": "en_US",
-      "donately-theme": "clean"
-    }
-  },
+  options: {
+    "donately-id": "act_5c611f36ad14",
+    "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
+    "donately-amount": "{\"placeholder\":250}",
+    "donately-campaign-id": "cmp_28f8b4e237e4",
+    "donately-confirmation-config": "{\"display_social_icons\":true}",
+    "donately-currency": "USD",
+    "donately-custom-theme": "{\"-PrimaryColor\":\"#940fd2\"}",
+    "donately-donor-pays-fees": "{\"cc\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"ach\":{\"processor_percent\":0.008,\"processor_fixed\":0,\"processor_cap\":5,\"dntly_percent\":0.04,\"complex_calc\":true},\"paypal\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"wallet\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true}}",
+    "donately-recurring-frequency": "[\"false\"]",
+    "donately-form-id": "frm_43ad6a917bb8",
+    "donately-i18n-locale": "en_US",
+    "donately-payment-options": "cc,ach,paypal,wallet",
+    "donately-presets": "100,250,500,1000",
+    "donately-form-navigation": "{\"steps\":[[\"presets\",\"amount\",\"donorpaysfees\",\"recurringgroup\"],[\"namegroup\",\"email\"],[\"paymentmethods\",\"submit\"]]}",
+    "donately-theme": "clean"
+  }
+},
 
   Elite: {
     title: "Make an Elite Gift",
