@@ -923,19 +923,6 @@ SHIRT CARD
   overflow:hidden;
   background:transparent;
 }
-    #campaignFrameMount{
-  width:100%;
-  min-height:1135px;
-}
-
-#campaignFrameMount iframe{
-  width:100%;
-  height:1135px;
-  min-height:1135px;
-  border:0;
-  display:block;
-  background:transparent;
-}
 
 .booster-donate-frame iframe{
   width:100%;
@@ -1769,162 +1756,68 @@ SHIRT CARD
  <div id="giving-form" class="booster-donate-full card">
   <div class="booster-donate-header">
     <div>
-      <h3 id="campaignTitle">Join the Booster Club</h3>
+      <h3 id="campaignTitle">Make an Elite Gift</h3>
       <p id="campaignText">
-        FRIENDS &amp; FAMILY – Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.
+        ELITE DONORS – Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.
         For donations larger than $500, please consider paying via check to avoid large fees.
         Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>
       </p>
     </div>
 
     <div class="campaign-toggle-row" aria-label="Donation campaign switcher">
-      <button class="btn primary campaign-switch campaign-switch-inline active" type="button" data-campaign="boosters">
-        Booster
-      </button>
-
-      <button class="btn gold campaign-switch campaign-switch-inline" type="button" data-campaign="business">
-        Business
-      </button>
-
-      <button class="btn campaign-switch campaign-switch-inline" type="button" data-campaign="Elite">
+      <button class="btn primary campaign-switch campaign-switch-inline active" type="button" data-campaign="Elite">
         Elite
       </button>
     </div>
   </div>
 
-<div class="booster-donate-frame">
-  <div id="campaignFrameMount"></div>
+  <div class="booster-donate-frame">
+    <div id="dntly-donation-form"></div>
+  </div>
 </div>
- </div>
-  
-  <!-- FOOTER -->
-  <footer class="wrap footer">
-    <div class="kicker">
-      <div>
-        <strong>Liberty Hill Panthers</strong>
-        <div class="note">MENTAL TOUGHNESS. XTRA EFFORT!</div>
-      </div>
-      <a class="btn" href="#top">Back to top</a>
-    </div>
-    <p class="note" style="margin-top:10px;">
 
-    </p>
-  </footer>
-
-  <div id="toast" class="toast" role="status" aria-live="polite">Copied!</div>
-
+<script src="https://cdn.donately.com/core/6.0/donately.min.js" async="async"></script>
 <script>
-(() => {
-  const root = document.querySelector(".carousel");
-  if (!root) return;
-
-  const track = root.querySelector(".car-track");
-  const slides = Array.from(root.querySelectorAll(".car-slide"));
-  const prevBtn = root.querySelector(".car-btn.prev");
-  const nextBtn = root.querySelector(".car-btn.next");
-  const dotsWrap = root.querySelector(".car-dots");
-
-  let index = 0;
-  let autoplay = true;      // set false if you don’t want auto-advance
-  let intervalMs = 5000;    // 5s
-  let timer = null;
-
-  // Create dots
-  slides.forEach((_, i) => {
-    const b = document.createElement("button");
-    b.className = "car-dot";
-    b.type = "button";
-    b.setAttribute("role", "tab");
-    b.setAttribute("aria-label", `Photo ${i+1}`);
-    b.addEventListener("click", () => go(i, true));
-    dotsWrap.appendChild(b);
+  dntlyReady("Donately", function() {
+    const configOptions = {
+      selector: "#dntly-donation-form",
+      options: {
+        "donately-id": "act_5c611f36ad14",
+        "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
+        "donately-amount": "{\"placeholder\":3000}",
+        "donately-campaign-id": "cmp_541d2cb8d432",
+        "donately-confirmation-config": "{\"display_social_icons\":true}",
+        "donately-currency": "USD",
+        "donately-custom-theme": "{\"-PrimaryColor\":\"#940fd2\"}",
+        "donately-donor-pays-fees": "{\"cc\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"ach\":{\"processor_percent\":0.008,\"processor_fixed\":0,\"processor_cap\":5,\"dntly_percent\":0.04,\"complex_calc\":true},\"paypal\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"wallet\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true}}",
+        "donately-recurring-frequency": "[\"false\"]",
+        "donately-form-id": "frm_46d779ef8c4b",
+        "donately-i18n-locale": "en_US",
+        "donately-payment-options": "cc,ach,paypal,wallet",
+        "donately-presets": "1000,3000,5000,10000",
+        "donately-form-navigation": "{\"steps\":[[\"presets\",\"amount\",\"donorpaysfees\",\"recurringgroup\"],[\"namegroup\",\"email\"],[\"paymentmethods\",\"submit\"]]}",
+        "donately-theme": "clean"
+      },
+      onError: function(error) {
+        console.error("Donately error:", error);
+      }
+    };
+    Donately.init(configOptions);
   });
 
-  const dots = Array.from(dotsWrap.querySelectorAll(".car-dot"));
-
-  function render() {
-    track.style.transform = `translateX(${-index * 100}%)`;
-    dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
+  function dntlyReady(name, callback) {
+    window.setTimeout(function() {
+      if (window[name]) callback(window[name]);
+      else dntlyReady(name, callback);
+    }, 10);
   }
-
-  function go(i, user=false){
-    index = (i + slides.length) % slides.length;
-    render();
-    if (user) restartAutoplay();
-  }
-
-  function next(){ go(index + 1); }
-  function prev(){ go(index - 1); }
-
-  prevBtn.addEventListener("click", () => go(index - 1, true));
-  nextBtn.addEventListener("click", () => go(index + 1, true));
-
-  // Swipe / drag
-  let startX = 0, dx = 0, isDown = false;
-  const viewport = root.querySelector(".car-viewport");
-
-  viewport.addEventListener("pointerdown", (e) => {
-    isDown = true;
-    startX = e.clientX;
-    dx = 0;
-    viewport.setPointerCapture(e.pointerId);
-    stopAutoplay();
-  });
-
-  viewport.addEventListener("pointermove", (e) => {
-    if (!isDown) return;
-    dx = e.clientX - startX;
-  });
-
-  viewport.addEventListener("pointerup", () => {
-    if (!isDown) return;
-    isDown = false;
-    if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
-    restartAutoplay();
-  });
-
-  function stopAutoplay(){
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
-
-  function restartAutoplay(){
-    if (!autoplay) return;
-    stopAutoplay();
-    timer = setInterval(next, intervalMs);
-  }
-
-  // Init
-  render();
-  restartAutoplay();
-})();
 </script>
 
-
+<!-- Donately Switch Campaigns -->
 <!-- Donately Switch Campaigns -->
 <script>
   const campaignMap = {
-    boosters: {
-      title: "Join the Booster Club",
-      text: `FRIENDS & FAMILY – Support scholarships, equipment, cheer fees, and athlete development through our Booster campaign.
-For donations larger than $500, please consider paying via check to avoid large fees.
-Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
-      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_24e14601a9bd&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km"
-    },
-    business: {
-      title: "Become a Business Sponsor",
-      text: `BUSINESSES – Support Liberty Hill youth football and cheer while gaining meaningful community visibility and recognition.
-For donations larger than $500, please consider paying via check to avoid large fees.
-Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
-      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_43ad6a917bb8&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km"
-    },
-    Elite: {
-      title: "Make an Elite Gift",
-      text: `ELITE DONORS – Create lasting impact through scholarships, equipment, camps, and long-term investment in the future of Liberty Hill athletes.
-For donations larger than $500, please consider paying via check to avoid large fees.
-Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
-      iframe: "https://cdn.donately.com/core/6.0/donate-form.html?form_id=frm_46d779ef8c4b&account_id=act_5c611f36ad14&stripe_key=pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km"
-    }
+    ...
   };
 
   const campaignButtons = document.querySelectorAll(".campaign-switch");
@@ -1935,66 +1828,18 @@ Contact <a href="mailto:president@lhyfc.org">president@lhyfc.org</a>`,
   let currentCampaign = null;
 
   function renderCampaignFrame(key) {
-    const config = campaignMap[key];
-    if (!config || !campaignFrameMount) return;
-
-    // Clear old iframe completely
-    campaignFrameMount.innerHTML = "";
-
+    ...
     const iframe = document.createElement("iframe");
-    iframe.src = config.iframe;
-    iframe.width = "100%";
-    iframe.height = "1135";
-    iframe.frameBorder = "0";
-    iframe.setAttribute("allowtransparency", "true");
-    iframe.setAttribute("allow", "payment *");
-    iframe.style.backgroundColor = "transparent";
-    iframe.style.border = "0";
-    iframe.style.overflow = "hidden";
-    iframe.style.display = "block";
-    iframe.style.margin = "0";
-    iframe.style.padding = "0";
-    iframe.style.width = "100%";
-    iframe.style.height = "1135px";
-
-    campaignFrameMount.appendChild(iframe);
-    currentCampaign = key;
+    ...
   }
 
   function setCampaign(key, scrollToForm = true) {
-    const config = campaignMap[key];
-    if (!config) return;
-
-    campaignButtons.forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.campaign === key);
-    });
-
-    campaignTitle.textContent = config.title;
-    campaignText.innerHTML = config.text;
-
-    if (currentCampaign !== key) {
-      renderCampaignFrame(key);
-    }
-
-    if (scrollToForm) {
-      document.getElementById("giving-form").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
+    ...
   }
 
-  campaignButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setCampaign(btn.dataset.campaign, true);
-    });
-  });
-
-  window.addEventListener("DOMContentLoaded", () => {
-    setCampaign("boosters", false);
-  });
+  ...
 </script>
-
+  
 </body>
 </html>
 
