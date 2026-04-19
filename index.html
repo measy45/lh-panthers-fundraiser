@@ -1784,42 +1784,6 @@ SHIRT CARD
   </div>
 </div>
   
-<script src="https://cdn.donately.com/core/6.0/donately.min.js" async="async"></script>
-<script>
-  dntlyReady("Donately", function() {
-    const configOptions = {
-      selector: "#dntly-donation-form",
-      options: {
-        "donately-id": "act_5c611f36ad14",
-        "stripe-publishable-key": "pk_live_51TK87dQXiROmVt5lGBglu2FRvZE2G85HmLnBuE9UUEf0T5pHphjZlZFKBWlPZ1iBAJsEaxMpkroMF7Mpih2WnOj900cBLpn8km",
-        "donately-amount": "{\"placeholder\":3000}",
-        "donately-campaign-id": "cmp_541d2cb8d432",
-        "donately-confirmation-config": "{\"display_social_icons\":true}",
-        "donately-currency": "USD",
-        "donately-custom-theme": "{\"-PrimaryColor\":\"#940fd2\"}",
-        "donately-donor-pays-fees": "{\"cc\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"ach\":{\"processor_percent\":0.008,\"processor_fixed\":0,\"processor_cap\":5,\"dntly_percent\":0.04,\"complex_calc\":true},\"paypal\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true},\"wallet\":{\"processor_percent\":0.029,\"processor_fixed\":0.3,\"processor_cap\":0,\"dntly_percent\":0.04,\"complex_calc\":true}}",
-        "donately-recurring-frequency": "[\"false\"]",
-        "donately-form-id": "frm_46d779ef8c4b",
-        "donately-i18n-locale": "en_US",
-        "donately-payment-options": "cc,ach,paypal,wallet",
-        "donately-presets": "1000,3000,5000,10000",
-        "donately-form-navigation": "{\"steps\":[[\"presets\",\"amount\",\"donorpaysfees\",\"recurringgroup\"],[\"namegroup\",\"email\"],[\"paymentmethods\",\"submit\"]]}",
-        "donately-theme": "clean"
-      },
-      onError: function(error) {
-        console.error("Donately error:", error);
-      }
-    };
-    Donately.init(configOptions);
-  });
-
-  function dntlyReady(name, callback) {
-    window.setTimeout(function() {
-      if (window[name]) callback(window[name]);
-      else dntlyReady(name, callback);
-    }, 10);
-  }
-</script>
 
 <!-- Donately Switch Campaigns -->
 <script>
